@@ -8,7 +8,7 @@
 - [x] Editor local de fichas con exportación; no publica directamente.
 - [x] Tests de datos, validación de imágenes y workflow de calidad.
 - [x] Guías de actualización, recuperación y costes.
-- [ ] Confirmar despliegue GitHub → Vercel (registrar resultado en PUBLICACION).
+- [x] Despliegue GitHub → Vercel confirmado; web pública responde HTTP 200.
 
 ## Fase 2 — Identidad y material real
 - [ ] Sustituir silueta por retrato recortado autorizado.
@@ -26,3 +26,8 @@
 ## Reglas
 
 Registrar fallos y mejoras en Issues usando las plantillas. Cada tarea debe indicar sección, resultado esperado y cómo comprobarlo. No activar suscripciones ni consumir APIs de pago sin una decisión explícita. No mezclar credenciales de servicios con contenido público.
+
+## Tareas abiertas
+
+- [Material real y renders](https://github.com/yhovelalex-lgtm/PAGINA-WEB-YHOVEL-/issues/1)
+- [Contacto, trayectoria y reconocimientos](https://github.com/yhovelalex-lgtm/PAGINA-WEB-YHOVEL-/issues/2)

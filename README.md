@@ -4,6 +4,10 @@ Plataforma de arquitectura, BIM y tecnología de Yhovel Alex Merma Ari.
 
 **React + Vite + Tailwind CSS + Framer Motion + Lucide.** Contenido versionado en GitHub y publicación en Vercel. Sin base de datos, suscripciones nuevas ni claves necesarias para ejecutar la web.
 
+**Web:** https://pagina-web-yhovel.vercel.app/
+
+**Tareas:** https://github.com/yhovelalex-lgtm/PAGINA-WEB-YHOVEL-/issues
+
 ## Empezar
 
 ```bash

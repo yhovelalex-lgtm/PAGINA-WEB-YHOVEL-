@@ -1,5 +1,16 @@
 # Publicación y recuperación
 
+## Publicación verificada — 3 noviembre 2026
+
+- Web: https://pagina-web-yhovel.vercel.app/
+- Proyecto Vercel: `pagina-web-yhovel`, equipo ARCHYM.
+- Primer despliegue: `dpl_CGx91cGnFrF7bFBmZwhFyexbMVe1`, estado READY.
+- Código inicial: `0e32ca76ce6fbcf4bb7810a58f172e53603372f5`.
+- GitHub Actions: seis pruebas y compilación correctas.
+- Acceso público comprobado sin cookies: HTTP 200.
+- Node del proyecto: 22.x.
+- Verificados en navegador: portada, filtro y editor de borradores.
+
 ## Flujo
 
 GitHub main → Vercel → validación de JSON → build de Vite → publicación.
