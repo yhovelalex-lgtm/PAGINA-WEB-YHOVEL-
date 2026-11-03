@@ -1,0 +1,18 @@
+[
+  {
+    "id": "modul-ai",
+    "name": "MODUL-AI",
+    "description": "Exploración de diseño generativo para vivienda modular y visualización de espacios.",
+    "url": "https://modul-ai-theta.vercel.app",
+    "status": "Disponible",
+    "category": "Experiencias digitales"
+  },
+  {
+    "id": "arqui-facil",
+    "name": "ARQUI-FÁCIL",
+    "description": "Herramienta para explorar el programa arquitectónico, las relaciones funcionales y los diagramas de espacios.",
+    "url": "https://arqui-facil-app-para-programa-arqui.vercel.app",
+    "status": "Disponible",
+    "category": "Experiencias digitales"
+  }
+]

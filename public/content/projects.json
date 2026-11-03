@@ -1,0 +1,68 @@
+[
+  {
+    "id": "modul-ai",
+    "title": "MODUL-AI",
+    "category": "Experiencias digitales",
+    "year": "2026",
+    "description": "Exploración de diseño generativo para vivienda modular y visualización de espacios.",
+    "tools": [
+      "React",
+      "Diseño generativo"
+    ],
+    "visual": 3,
+    "url": "https://modul-ai-theta.vercel.app",
+    "demo": false,
+    "status": "published",
+    "cover": null,
+    "gallery": []
+  },
+  {
+    "id": "arqui-facil",
+    "title": "ARQUI-FÁCIL",
+    "category": "Experiencias digitales",
+    "year": "2026",
+    "description": "Herramienta para explorar el programa arquitectónico, las relaciones funcionales y los diagramas de espacios.",
+    "tools": [
+      "React",
+      "Programación arquitectónica"
+    ],
+    "visual": 1,
+    "url": "https://arqui-facil-app-para-programa-arqui.vercel.app",
+    "demo": false,
+    "status": "published",
+    "cover": null,
+    "gallery": []
+  },
+  {
+    "id": "habitar-futuro",
+    "title": "Habitar el futuro",
+    "category": "Arquitectura",
+    "year": "2026",
+    "description": "Estudio conceptual de vivienda modular. Ilustración de demostración a sustituir por un proyecto documentado.",
+    "tools": [
+      "Revit",
+      "Dynamo"
+    ],
+    "visual": 0,
+    "demo": true,
+    "status": "published",
+    "cover": null,
+    "gallery": []
+  },
+  {
+    "id": "codigo-construye",
+    "title": "Código que construye",
+    "category": "Automatización",
+    "year": "2026",
+    "description": "Presentación conceptual de automatización BIM. Contenido de muestra para incorporar casos reales.",
+    "tools": [
+      "Python",
+      "pyRevit"
+    ],
+    "visual": 2,
+    "demo": true,
+    "status": "published",
+    "cover": null,
+    "gallery": []
+  }
+]

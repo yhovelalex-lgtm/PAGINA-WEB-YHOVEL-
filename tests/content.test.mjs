@@ -1,0 +1,9 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {validateProjects,validateApps,safeUrl} from '../src/lib/content.js';
+const project={id:'test',title:'Proyecto',category:'Arquitectura',description:'Descripción',status:'published'};
+test('catálogo válido y valores normalizados',()=>{const [p]=validateProjects([project]);assert.equal(p.status,'published');assert.deepEqual(p.gallery,[]);assert.equal(typeof p.year,'string')});
+test('rechaza IDs duplicados y estados desconocidos',()=>{assert.throws(()=>validateProjects([project,project]));assert.throws(()=>validateProjects([{...project,status:'pubished'}]))});
+test('bloquea protocolos ejecutables y rutas externas ambiguas',()=>{for(const url of ['javascript:alert(1)','data:text/html,x','//example.com','https://user:pass@example.com'])assert.equal(safeUrl(url),false);assert.equal(safeUrl('/media/../secret',{local:true}),false);assert.throws(()=>validateProjects([{...project,url:'javascript:alert(1)'}]))});
+test('galerías exigen texto alternativo y URL segura',()=>{assert.throws(()=>validateProjects([{...project,cover:{src:'/media/image.webp',alt:''}}]));assert.throws(()=>validateProjects([{...project,gallery:[{src:'http://example.com/a',alt:'Render'}]}]));assert.equal(validateProjects([{...project,cover:{src:'/media/projects/test/cover.webp',alt:'Render'}}]).length,1)});
+test('permite catálogo vacío y borradores explícitos',()=>{assert.deepEqual(validateProjects([]),[]);assert.equal(validateProjects([{...project,status:'draft'}])[0].status,'draft')});
+test('las apps deben tener enlaces seguros e IDs únicos',()=>{const app={id:'a',name:'App',description:'Demo',url:'https://example.com'};assert.equal(validateApps([app]).length,1);assert.throws(()=>validateApps([app,app]));assert.throws(()=>validateApps([{...app,url:'file:///secret'}]))});

@@ -1,0 +1,27 @@
+{
+  "name": "pagina-web-yhovel",
+  "version": "1.1.0",
+  "description": "Plataforma personal de arquitectura, BIM y tecnolog\u00eda de Yhovel Alex",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "npm run validate && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "validate": "node scripts/validate-content.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run test && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.4",
+    "framer-motion": "^14.9.0",
+    "lucide-react": "^1.66.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^4.3.4",
+    "vite": "^8.3.5"
+  },
+  "private": true
+}
