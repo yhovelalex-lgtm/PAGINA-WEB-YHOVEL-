@@ -2,3 +2,15 @@
 @media(max-width:1000px){.portal-model{right:-25%;width:90%;opacity:.65}.portal-copy{max-width:500px}.portal-copy h1{font-size:90px}.nav nav{gap:18px}.app-art{height:210px}}
 @media(max-width:640px){.portal{height:140vh}.portal-sticky{min-height:640px;align-items:flex-start;padding-top:125px}.portal-copy h1{font-size:66px}.portal-copy .eyebrow{font-size:7px}.portal-copy p{font-size:12px}.portal-model{width:110%;right:-25%;top:42%;opacity:.4}.portal-actions{align-items:start;flex-direction:column;gap:18px}.portal-copy{z-index:2}.portal-bottom{bottom:110px;font-size:6px;gap:15px}.portal-bottom>span>span{margin:0 3px}.portal-bottom a{max-width:115px}.app-grid{grid-template-columns:1fr}.studio-grid{grid-template-columns:1fr;gap:0}.nav nav{gap:10px}.nav nav a{font-size:9px}.nav nav a:nth-child(4){display:none}.console-tracks{display:flex}.console-tracks button{min-height:34px}.console-top button{min-height:28px;min-width:28px}.sequence-console{bottom:8px}.app-meta h3{font-size:24px}}
 @media(prefers-reduced-motion:reduce){.portal{height:auto}.portal-sticky{position:relative}.portal-model{transform:none!important}.app-art *{animation:none!important}}
+
+/* Content reserves its final dimensions before scrolling into view. */
+.composition-enabled [data-compose="waiting"],
+.composition-enabled [data-compose="drawing"] { clip-path: inset(0 100% 100% 0) !important; }
+.composition-enabled [data-compose="inserting"] { clip-path: var(--compose-clip, inset(0 100% 0 0)) !important; }
+.edit-frame[data-stage="frame"] { background: #f4f4f61a; }
+.edit-frame[data-stage="frame"][data-kind="image"] { background: linear-gradient(to top right, transparent calc(50% - .5px), #2455ee30 50%, transparent calc(50% + .5px)), linear-gradient(to bottom right, transparent calc(50% - .5px), #2455ee30 50%, transparent calc(50% + .5px)); }
+.edit-frame .scan-line { display: none; }
+.edit-frame[data-kind="text"][data-stage="insert"] .scan-line { display:block; position:absolute; left:var(--caret-x); top:var(--caret-y); height:var(--caret-height); width:2px; background:var(--agent-color); opacity:1; animation:composition-caret .65s steps(1) infinite; }
+@keyframes composition-caret { 50% { opacity:.15; } }
+@media(prefers-reduced-motion:reduce), (pointer:coarse) { .composition-enabled [data-compose] { clip-path:none !important; } }
+@media print { .composition-enabled [data-compose] { clip-path:none !important; } .builder-swarm {display:none;} }
