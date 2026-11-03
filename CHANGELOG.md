@@ -1,3 +1,10 @@
+## 1.3.0 — 2026-11-03
+
+- Corregido el reinicio de opacidad de los marcos en cada fotograma.
+- Añadidas cotas de ancho/alto, ocho tiradores, guías centrales, coordenadas y propiedades tipográficas.
+- Marcos conservados durante escritura, colocación y revisión final antes de desvanecerse.
+- Nueve identidades visuales y panel de presencia con tareas simultáneas (simulación).
+
 ## 1.2.0 — 2026-11-03
 
 - Composición por bloque al entrar en pantalla, sin mostrar y ocultar previamente el contenido.

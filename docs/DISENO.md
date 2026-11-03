@@ -17,3 +17,7 @@ Cada bloque reserva sus dimensiones desde el primer render. En escritorio con pu
 Movimiento reducido, pantallas táctiles y modo impresión muestran el contenido directamente. Desactivar robots elimina todas las máscaras. Al enfocar un bloque con teclado, se revela inmediatamente.
 
 Verificación: comprobar títulos inferiores en estado waiting antes de hacer scroll, recorrido hacia proyectos, cola de bloques visibles y retorno al estado done. Probar también repetición, pausa y filtros.
+
+### Capas de edición colaborativa
+
+Los marcos incorporan ocho tiradores, cotas de dimensiones reales en píxeles, coordenadas del documento, metadatos tipográficos y guías centrales. Cada robot tiene número y color propios. El panel de presencia indica actividad simultánea y se identifica como simulación, sin usuarios remotos reales. El trazado dura 850 ms, seguido de 600 ms de ajuste; tras insertar contenido se revisa durante 1550 ms, con desvanecimiento final. La opacidad no se reinicia durante cada fotograma: permanece estable mientras el robot trabaja.

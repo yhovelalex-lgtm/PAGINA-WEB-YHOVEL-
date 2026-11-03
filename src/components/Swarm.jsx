@@ -2,6 +2,9 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { useReducedMotion } from 'framer-motion';
 import { Box } from 'lucide-react';
 
+const ROLES = ['TIPOGRAFÍA','RETÍCULA','CONTENIDO','IMÁGENES','CAPAS','DETALLES','ALINEACIÓN','ESPACIADO','REVISIÓN'];
+const COLORS = ['#2455ee','#527782','#7a5ca2','#277c8e','#5468b6','#946c50','#407c66','#83618d','#526071'];
+
 // Keep the real DOM text intact for selection, accessibility and React updates.
 // A Range follows the actual glyph positions, including line wrapping and italics.
 function textMap(element) {
@@ -26,7 +29,7 @@ function cursorAt(job, progress, box) {
  return { x: Math.max(0, r.right - box.left), y: Math.max(0, r.top - box.top), height: r.height || 20 };
 }
 export default function Swarm() {
- const reduced = useReducedMotion(), refs = useRef([]), dock = useRef(null), layer = useRef(null), frames = useRef([]);
+ const reduced = useReducedMotion(), refs = useRef([]), dock = useRef(null), layer = useRef(null), frames = useRef([]), team = useRef([]);
  useLayoutEffect(() => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches || !matchMedia('(pointer:fine)').matches) return;
   const pointer = { x: innerWidth - 110, y: innerHeight - 90 };
@@ -90,6 +93,8 @@ export default function Swarm() {
      b.job.chars = b.job.text ? textMap(b.job.el) : [];
      b.job.duration = b.job.text ? Math.max(850, Math.min(2800, b.job.chars.length * 24)) : 1150;
      b.job.el.dataset.compose = 'drawing';
+     const style = getComputedStyle(b.job.el);
+     b.job.spec = b.job.text ? `${parseFloat(style.fontSize).toFixed(0)} px · ${style.fontWeight} · ${style.fontFamily.split(',')[0].replaceAll('\"','')}` : 'IMAGEN / AJUSTAR AL MARCO';
     }
    });
    const busy = bots.some(b => b.job);
@@ -101,19 +106,30 @@ export default function Swarm() {
    dock.current.querySelector('span').textContent = busy ? 'COMPONIENDO' : phase === 'returning' ? 'REUNIENDO' : '9 / LISTOS';
    bots.forEach((b, i) => {
     const f = frames.current[i]; let tx = dx + 12 + (i % 3) * 14, ty = dy + 8 + Math.floor(i / 3) * 9;
-    f.style.opacity = '0';
+    if (!b.job) f.style.opacity = '0';
+    team.current[i].dataset.busy = b.job ? 'true' : 'false';
+    if (!b.job) team.current[i].title = `${ROLES[i]}: disponible`;
     if (b.job) {
      const job = b.job, r = job.el.getBoundingClientRect(), age = now - job.start;
      // Draw and size an EMPTY frame, pause, then insert its contents.
-     const sizing = Math.min(1, age / 550), progress = Math.max(0, Math.min(1, (age - 850) / job.duration));
+     const sizing = Math.min(1, age / 850), progress = Math.max(0, Math.min(1, (age - 1450) / job.duration));
      const inView = r.bottom > 85 && r.top < innerHeight && r.right > 0 && r.left < innerWidth;
      f.style.opacity = inView ? '1' : '0';
      f.style.left = `${r.left - 4}px`; f.style.top = `${r.top - 4}px`;
      f.style.width = `${(r.width + 8) * (.12 + .88 * sizing)}px`;
      f.style.height = `${(r.height + 8) * (.15 + .85 * sizing)}px`;
-     f.dataset.kind = job.text ? 'text' : 'image'; f.dataset.stage = age < 850 ? 'frame' : 'insert';
-     f.querySelector('.frame-caption').textContent = age < 550 ? 'TRAZAR MARCO' : age < 850 ? 'AJUSTAR MEDIDAS' : job.text ? `T / ESCRIBIR ${Math.round(progress * 100)}%` : `COLOCAR / ${Math.round(progress * 100)}%`;
-     if (age >= 850) {
+     f.dataset.kind = job.text ? 'text' : 'image'; f.dataset.stage = progress >= 1 ? 'review' : age < 1450 ? 'frame' : 'insert';
+     const action = progress >= 1 ? 'REVISANDO ✓' : age < 850 ? 'TRAZANDO' : age < 1450 ? 'AJUSTANDO' : job.text ? 'ESCRIBIENDO' : 'COLOCANDO';
+     f.querySelector('.frame-caption').textContent = `${String(i + 1).padStart(2,'0')} · ${ROLES[i]} / ${action}`;
+     f.querySelector('.dimension-width span').textContent = `${Math.round(r.width * (.12 + .88 * sizing))} px`;
+     f.querySelector('.dimension-height span').textContent = `${Math.round(r.height * (.15 + .85 * sizing))} px`;
+     f.querySelector('.frame-properties').textContent = `X ${Math.round(r.left)}  Y ${Math.round(r.top + scrollY)}  /  ${job.spec}`;
+     f.querySelector('.insert-placeholder').textContent = job.text ? 'T  /  CUADRO DE TEXTO' : '⊠  /  INSERTAR IMAGEN';
+     f.style.setProperty('--task-progress', `${progress * 100}%`);
+     refs.current[i].querySelector('.builder-label').textContent = `${String(i + 1).padStart(2,'0')} · ${ROLES[i]} / ${action}`;
+     team.current[i].dataset.busy = 'true';
+     team.current[i].title = `${ROLES[i]}: ${action.toLowerCase()}`;
+     if (age >= 1450) {
       job.el.dataset.compose = 'inserting';
       if (job.text) {
        const c = cursorAt(job, progress, r), bottom = Math.min(r.height + 5, c.y + c.height + 2);
@@ -125,7 +141,14 @@ export default function Swarm() {
        tx = r.left + r.width * progress; ty = r.bottom;
       }
      } else { tx = r.left + r.width * sizing; ty = r.top + r.height * sizing; }
-     if (progress >= 1) { finish(job); b.job = null; f.style.opacity = '0'; }
+     if (progress >= 1) {
+      job.el.dataset.compose = 'done'; job.el.style.removeProperty('--compose-clip'); job.state = 'review';
+      const review = age - 1450 - job.duration;
+      // Hold the selection, dimensions and collaborator cursor while checking placement.
+      tx = r.left + r.width; ty = r.top + r.height * Math.min(1, review / 1100);
+      if (review > 1100) f.style.opacity = inView ? String(Math.max(0, 1 - (review - 1100) / 450)) : '0';
+      if (review >= 1550) { finish(job); b.job = null; f.style.opacity = '0'; }
+     }
     }
     tx = Math.max(8, Math.min(innerWidth - 70, tx)); ty = Math.max(86, Math.min(innerHeight - 80, ty));
     const d = Math.hypot(tx - b.x, ty - b.y);
@@ -146,5 +169,5 @@ export default function Swarm() {
   };
  }, [reduced]);
  if(reduced)return null;
- return <div ref={layer} className="swarm builder-swarm" aria-hidden="true">{Array.from({length:9},(_,i)=><div key={'frame'+i} ref={el=>frames.current[i]=el} className="edit-frame" style={{'--agent-color':['#2455ee','#587a81','#6b5f9e'][i%3]}}><span className="frame-caption"/><i/><i/><i/><i/><div className="scan-line"/></div>)}<div ref={dock} className="robot-dock"><Box size={14}/><span>9 / LISTOS</span><i/></div>{Array.from({length:9},(_,i)=><div className="bot builder-bot" style={{'--agent-color':['#2455ee','#587a81','#6b5f9e'][i%3]}} ref={el=>refs.current[i]=el} key={i}><svg viewBox="0 0 32 36" width="28"><g stroke="#3f3f46" strokeWidth="1.5" fill="white"><path d="M16 6V2m-2 0h4"/><rect x="7" y="7" width="18" height="14" rx="4"/><circle cx="12" cy="13" r="1" fill="#2455ee"/><circle cx="20" cy="13" r="1" fill="#2455ee"/><path d="M13 18h6M7 22l-4 4"/><g className="tool-arm"><path d="M25 19l4-5m-2-3 4 4M26 10l5 5" stroke="#2455ee"/></g><g className="legs"><path d="M11 21v8H7m14-8v8h4"/></g></g><path className="flame" d="M10 22l3 12 3-10 3 10 3-12" fill="#2455ee"/><g className="sparks" stroke="#2455ee"><path d="M27 5V1m3 6 2-2m-9-1-2-2"/></g></svg><span className="builder-label">{['TÍTULO','TRAZO','TEXTO','RETÍCULA','CAPAS','DETALLE','ALINEAR','ESPACIO','REVISIÓN'][i]}</span><div className="builder-guide"/><span className="agent-pointer">➤</span></div>)}</div>;
+ return <div ref={layer} className="swarm builder-swarm" aria-hidden="true">{Array.from({length:9},(_,i)=><div key={'frame'+i} ref={el=>frames.current[i]=el} className="edit-frame" style={{'--agent-color':COLORS[i]}}><span className="frame-caption"/><i/><i/><i/><i/><i/><i/><i/><i/><div className="dimension-width"><span/></div><div className="dimension-height"><span/></div><div className="alignment-guide guide-horizontal"/><div className="alignment-guide guide-vertical"/><span className="insert-placeholder"/><span className="frame-properties"/><div className="frame-task-progress"/><div className="scan-line"/></div>)}<div className="collaborator-presence"><span>ESTUDIO EN VIVO <small>9 ROBOTS</small></span><div>{ROLES.map((role,i)=><b key={role} ref={el=>team.current[i]=el} style={{"--agent-color":COLORS[i]}} title={role}>{String(i+1).padStart(2,"0")}<i/></b>)}</div><small>SIMULACIÓN DE EDICIÓN COLABORATIVA</small></div><div ref={dock} className="robot-dock"><Box size={14}/><span>9 / LISTOS</span><i/></div>{Array.from({length:9},(_,i)=><div className="bot builder-bot" style={{'--agent-color':COLORS[i]}} ref={el=>refs.current[i]=el} key={i}><svg viewBox="0 0 32 36" width="28"><g stroke="#3f3f46" strokeWidth="1.5" fill="white"><path d="M16 6V2m-2 0h4"/><rect x="7" y="7" width="18" height="14" rx="4"/><circle cx="12" cy="13" r="1" fill="#2455ee"/><circle cx="20" cy="13" r="1" fill="#2455ee"/><path d="M13 18h6M7 22l-4 4"/><g className="tool-arm"><path d="M25 19l4-5m-2-3 4 4M26 10l5 5" stroke="#2455ee"/></g><g className="legs"><path d="M11 21v8H7m14-8v8h4"/></g></g><path className="flame" d="M10 22l3 12 3-10 3 10 3-12" fill="#2455ee"/><g className="sparks" stroke="#2455ee"><path d="M27 5V1m3 6 2-2m-9-1-2-2"/></g></svg><span className="builder-label">{ROLES[i]}</span><div className="builder-guide"/><span className="agent-pointer">➤</span></div>)}</div>;
 }

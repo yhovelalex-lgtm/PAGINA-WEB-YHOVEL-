@@ -14,3 +14,36 @@
 @keyframes composition-caret { 50% { opacity:.15; } }
 @media(prefers-reduced-motion:reduce), (pointer:coarse) { .composition-enabled [data-compose] { clip-path:none !important; } }
 @media print { .composition-enabled [data-compose] { clip-path:none !important; } .builder-swarm {display:none;} }
+
+/* Additive editor chrome: frames remain selected through insertion and review. */
+.builder-swarm .edit-frame{border:1.5px solid var(--agent-color);box-shadow:0 0 0 1px #ffffffaa;transition:opacity .18s;min-width:12px;min-height:12px}
+.edit-frame .frame-caption{top:-46px;font-size:8px;padding:4px 7px;border-radius:3px;max-width:min(300px,80vw);overflow:hidden;text-overflow:ellipsis}
+.builder-swarm .edit-frame>i{width:6px;height:6px;box-shadow:0 0 0 1px white}
+.edit-frame>i:nth-of-type(5){left:50%;top:-4px;transform:translateX(-50%)}
+.edit-frame>i:nth-of-type(6){right:-4px;top:50%;transform:translateY(-50%)}
+.edit-frame>i:nth-of-type(7){left:50%;bottom:-4px;transform:translateX(-50%)}
+.edit-frame>i:nth-of-type(8){left:-4px;top:50%;transform:translateY(-50%)}
+.dimension-width{position:absolute;left:0;right:0;top:-18px;height:6px;border-top:1px solid var(--agent-color);border-left:1px solid var(--agent-color);border-right:1px solid var(--agent-color)}
+.dimension-width span,.dimension-height span{position:absolute;background:#fffffff5;color:var(--agent-color);padding:2px 5px;font:9px 'IBM Plex Mono',monospace;white-space:nowrap;border-radius:2px}
+.dimension-width span{left:50%;top:-9px;transform:translateX(-50%)}
+.dimension-height{position:absolute;right:-18px;top:0;bottom:0;width:6px;border-right:1px solid var(--agent-color);border-top:1px solid var(--agent-color);border-bottom:1px solid var(--agent-color)}
+.dimension-height span{top:50%;right:-3px;transform:translate(50%,-50%) rotate(90deg)}
+.alignment-guide{position:absolute;opacity:.35;border-color:var(--agent-color);border-style:dashed;border-width:0}
+.guide-horizontal{left:-35px;right:-35px;top:50%;border-top-width:1px}
+.guide-vertical{top:-30px;bottom:-30px;left:50%;border-left-width:1px}
+.frame-properties{position:absolute;left:0;bottom:-25px;padding:4px 6px;background:#fffffff2;border:1px solid #e4e4e7;color:#52525b;font:8px monospace;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis;border-radius:2px}
+.insert-placeholder{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fffffff0;padding:5px 8px;border:1px dashed var(--agent-color);font:8px monospace;color:var(--agent-color);white-space:nowrap}
+.edit-frame:not([data-stage="frame"]) .insert-placeholder{display:none}
+.frame-task-progress{position:absolute;left:0;bottom:-2px;height:3px;width:var(--task-progress,0%);background:var(--agent-color)}
+.edit-frame[data-stage="review"] .alignment-guide{opacity:.55}
+.edit-frame[data-stage="review"] .scan-line{display:none}
+.builder-bot[data-working=true] .builder-label{font-size:7px;padding:4px 6px;box-shadow:0 2px 7px #18181b15}
+.collaborator-presence{position:fixed;right:24px;bottom:124px;padding:11px;background:#ffffffed;border:1px solid #e4e4e7;border-radius:6px;box-shadow:0 4px 18px #18181b08;font:8px 'IBM Plex Mono',monospace;color:#52525b}
+.collaborator-presence>span{display:flex;justify-content:space-between;gap:28px;margin-bottom:10px}
+.collaborator-presence small{font-size:6px;color:#71717a;letter-spacing:.04em}
+.collaborator-presence>div{display:flex;gap:5px;margin-bottom:8px}
+.collaborator-presence b{position:relative;display:grid;place-items:center;width:22px;height:24px;border:1px solid #e4e4e7;border-radius:4px;color:var(--agent-color);font-weight:400;transition:background .2s}
+.collaborator-presence b[data-busy=true]{background:var(--agent-color);color:white;border-color:var(--agent-color)}
+.collaborator-presence b i{position:absolute;right:-2px;bottom:-2px;width:5px;height:5px;border-radius:50%;background:#b1b1ba;border:1px solid white}
+.collaborator-presence b[data-busy=true] i{background:#36a776}
+@media(max-width:1000px){.collaborator-presence{display:none}.frame-properties{font-size:7px}.edit-frame .frame-caption{font-size:7px}}
