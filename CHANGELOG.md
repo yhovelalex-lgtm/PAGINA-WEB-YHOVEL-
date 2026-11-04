@@ -1,3 +1,10 @@
+## 1.4.0 — 2026-11-03
+
+- Recorrido automático tras 12 segundos sin actividad, espera a los robots y deja 7 segundos de lectura.
+- Avance suave por tramos para no saltar contenido de secciones altas; termina al llegar al final.
+- Pausa inmediata con mouse, teclado, rueda o tacto; suspensión en formularios, modales y pestañas ocultas.
+- Control AUTO ON/OFF y cuenta regresiva. Movimiento reducido desactiva el recorrido.
+
 ## 1.3.0 — 2026-11-03
 
 - Corregido el reinicio de opacidad de los marcos en cada fotograma.

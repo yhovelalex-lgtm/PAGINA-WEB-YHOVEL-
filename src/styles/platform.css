@@ -47,3 +47,5 @@
 .collaborator-presence b i{position:absolute;right:-2px;bottom:-2px;width:5px;height:5px;border-radius:50%;background:#b1b1ba;border:1px solid white}
 .collaborator-presence b[data-busy=true] i{background:#36a776}
 @media(max-width:1000px){.collaborator-presence{display:none}.frame-properties{font-size:7px}.edit-frame .frame-caption{font-size:7px}}
+
+.tour-controls{display:flex;align-items:center;gap:14px;border-top:1px solid #e4e4e7;padding:7px 0 9px;font:8px 'IBM Plex Mono',monospace;color:#62626c}.tour-controls button{color:#2455ee;min-height:26px;padding:0 7px;border:1px solid #dce3f7;border-radius:3px;background:#f5f7ff}.tour-controls button[aria-pressed=false]{color:#71717a;background:#f4f4f6;border-color:#e4e4e7}.tour-controls small{margin-left:auto;font-size:7px}.collaborator-presence{bottom:166px}@media(max-width:640px){.tour-controls{font-size:7px;gap:9px}.tour-controls small{display:none}}

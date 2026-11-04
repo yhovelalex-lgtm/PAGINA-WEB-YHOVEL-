@@ -21,3 +21,9 @@ Verificación: comprobar títulos inferiores en estado waiting antes de hacer sc
 ### Capas de edición colaborativa
 
 Los marcos incorporan ocho tiradores, cotas de dimensiones reales en píxeles, coordenadas del documento, metadatos tipográficos y guías centrales. Cada robot tiene número y color propios. El panel de presencia indica actividad simultánea y se identifica como simulación, sin usuarios remotos reales. El trazado dura 850 ms, seguido de 600 ms de ajuste; tras insertar contenido se revisa durante 1550 ms, con desvanecimiento final. La opacidad no se reinicia durante cada fotograma: permanece estable mientras el robot trabaja.
+
+### Recorrido por inactividad
+
+AUTO está activado inicialmente. Tras 12 segundos sin entradas del usuario, espera que finalicen los robots y reserva 7 segundos de lectura, con cuenta regresiva. Avanza durante 1,8 segundos hasta el siguiente inicio de sección o un 65% de la pantalla, lo que esté más cerca, para visitar también bloques inferiores. Termina al llegar al pie de página.
+
+Mouse, clic, rueda, teclado y tacto cancelan el desplazamiento y reinician la espera. Se suspende durante la edición de campos, con un modal abierto o la pestaña oculta. AUTO OFF, pausa de robots y movimiento reducido desactivan el recorrido. No utiliza servicios externos ni tareas programadas.
