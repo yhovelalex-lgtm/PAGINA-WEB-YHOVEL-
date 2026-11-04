@@ -1,5 +1,68 @@
 [
   {
+    "id": "anka-vivienda-unifamiliar",
+    "title": "Vivienda unifamiliar · ANKA Studio",
+    "category": "Modelado BIM",
+    "year": "2024",
+    "description": "Ejercicio del curso de ANKA Studio en Puno, Perú. Mi trabajo fue modelar y documentar la vivienda en BIM. En arquitectura, la planta y el corte muestran cómo se organizan los ambientes y los niveles. El detalle de cocina conecta el modelo con la vista interior de portada. En estructuras, las vistas de cimentación, losa y zapatas se complementan con secciones, isometrías y metrados.",
+    "tools": [
+      "Revit",
+      "Modelado BIM",
+      "Documentación técnica"
+    ],
+    "visual": 1,
+    "demo": false,
+    "status": "published",
+    "cover": {
+      "src": "/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp",
+      "alt": "A-108 · Vista interior de la cocina de la vivienda unifamiliar"
+    },
+    "gallery": [
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/planta-primer-nivel.webp",
+        "alt": "A-101 · Distribución del primer nivel. Las cotas y los ejes sitúan la sala, el jardín y la circulación.",
+        "group": "Arquitectura",
+        "sheet": "A-101",
+        "caption": "Distribución del primer nivel. Las cotas y los ejes sitúan la sala, el jardín y la circulación."
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/corte-longitudinal.webp",
+        "alt": "A-103 · Corte longitudinal A–A. La escalera permite seguir la relación entre niveles.",
+        "group": "Arquitectura",
+        "sheet": "A-103",
+        "caption": "Corte longitudinal A–A. La escalera permite seguir la relación entre niveles."
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/detalle-cocina.webp",
+        "alt": "A-105 · Detalle de cocina. Planta, secciones e isometría documentan el mismo ambiente que se ve en la portada.",
+        "group": "Arquitectura",
+        "sheet": "A-105",
+        "caption": "Detalle de cocina. Planta, secciones e isometría documentan el mismo ambiente que se ve en la portada."
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/cimentacion.webp",
+        "alt": "E-101 · Planta de cimentación con cortes de los cimientos corridos y cuadro de columnas.",
+        "group": "Estructuras",
+        "sheet": "E-101",
+        "caption": "Planta de cimentación con cortes de los cimientos corridos y cuadro de columnas."
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/losa-aligerada.webp",
+        "alt": "E-102 · Losa aligerada. La planta se lee junto al detalle y la isometría del armado.",
+        "group": "Estructuras",
+        "sheet": "E-102",
+        "caption": "Losa aligerada. La planta se lee junto al detalle y la isometría del armado."
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/zapatas.webp",
+        "alt": "E-103 · Zapatas. Vistas de concreto, encofrado y acero con sus tablas de metrados.",
+        "group": "Estructuras",
+        "sheet": "E-103",
+        "caption": "Zapatas. Vistas de concreto, encofrado y acero con sus tablas de metrados."
+      }
+    ]
+  },
+  {
     "id": "modul-ai",
     "title": "MODUL-AI",
     "category": "Experiencias digitales",
