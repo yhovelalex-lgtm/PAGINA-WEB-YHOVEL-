@@ -3,8 +3,8 @@
     "id": "anka-vivienda-unifamiliar",
     "title": "Vivienda unifamiliar · ANKA Studio",
     "category": "Modelado BIM",
-    "year": "2024",
-    "description": "Ejercicio del curso de ANKA Studio en Puno, Perú. Mi trabajo fue modelar y documentar la vivienda en BIM. En arquitectura, la planta y el corte muestran cómo se organizan los ambientes y los niveles. El detalle de cocina conecta el modelo con la vista interior de portada. En estructuras, las vistas de cimentación, losa y zapatas se complementan con secciones, isometrías y metrados.",
+    "year": "2024–2025",
+    "description": "Ejercicio del curso de ANKA Studio en Puno, Perú. Mi trabajo fue modelar y documentar la vivienda en BIM. En arquitectura, la planta y el corte muestran cómo se organizan los ambientes y los niveles. El detalle de cocina conecta el modelo con la vista interior de portada. En estructuras, las vistas de cimentación, losa y zapatas se complementan con secciones, isometrías y metrados. En la etapa MEP documenté las redes de agua y desagüe, la cisterna y el tanque elevado, así como el alumbrado, los tomacorrientes y el tablero general.",
     "tools": [
       "Revit",
       "Modelado BIM",
@@ -59,6 +59,126 @@
         "group": "Estructuras",
         "sheet": "E-103",
         "caption": "Zapatas. Vistas de concreto, encofrado y acero con sus tablas de metrados."
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/is101.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/is101.pdf",
+        "group": "Instalaciones sanitarias",
+        "sheet": "IS101",
+        "caption": "Agua fría y caliente del primer nivel",
+        "alt": "IS101 · Agua fría y caliente del primer nivel"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/is102.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/is102.pdf",
+        "group": "Instalaciones sanitarias",
+        "sheet": "IS102",
+        "caption": "Agua fría y caliente del segundo nivel",
+        "alt": "IS102 · Agua fría y caliente del segundo nivel"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/is103.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/is103.pdf",
+        "group": "Instalaciones sanitarias",
+        "sheet": "IS103",
+        "caption": "Agua fría y caliente del tercer nivel y detalles de aparatos",
+        "alt": "IS103 · Agua fría y caliente del tercer nivel y detalles de aparatos"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/is104.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/is104.pdf",
+        "group": "Instalaciones sanitarias",
+        "sheet": "IS104",
+        "caption": "Isometría de abastecimiento y metrados de tuberías",
+        "alt": "IS104 · Isometría de abastecimiento y metrados de tuberías"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/is105.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/is105.pdf",
+        "group": "Instalaciones sanitarias",
+        "sheet": "IS105",
+        "caption": "Desagüe del primer nivel y detalle de conexiones",
+        "alt": "IS105 · Desagüe del primer nivel y detalle de conexiones"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/is106.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/is106.pdf",
+        "group": "Instalaciones sanitarias",
+        "sheet": "IS106",
+        "caption": "Desagüe del segundo nivel, caja de registro y ventilación",
+        "alt": "IS106 · Desagüe del segundo nivel, caja de registro y ventilación"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/is107.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/is107.pdf",
+        "group": "Instalaciones sanitarias",
+        "sheet": "IS107",
+        "caption": "Isometría de desagüe y cuadro de accesorios",
+        "alt": "IS107 · Isometría de desagüe y cuadro de accesorios"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/is108.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/is108.pdf",
+        "group": "Instalaciones sanitarias",
+        "sheet": "IS108",
+        "caption": "Corte fugado de los servicios higiénicos",
+        "alt": "IS108 · Corte fugado de los servicios higiénicos"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/is109.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/is109.pdf",
+        "group": "Instalaciones sanitarias",
+        "sheet": "IS109",
+        "caption": "Baño del primer nivel en planta, isometría y cortes",
+        "alt": "IS109 · Baño del primer nivel en planta, isometría y cortes"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/is110.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/is110.pdf",
+        "group": "Instalaciones sanitarias",
+        "sheet": "IS110",
+        "caption": "Cisterna en planta, cortes e isometría",
+        "alt": "IS110 · Cisterna en planta, cortes e isometría"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/is111.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/is111.pdf",
+        "group": "Instalaciones sanitarias",
+        "sheet": "IS111",
+        "caption": "Tanque elevado y conexión con la vivienda",
+        "alt": "IS111 · Tanque elevado y conexión con la vivienda"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/ie101.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/ie101.pdf",
+        "group": "Instalaciones eléctricas",
+        "sheet": "IE101",
+        "caption": "Planta eléctrica del primer nivel y tablero general",
+        "alt": "IE101 · Planta eléctrica del primer nivel y tablero general"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/ie102.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/ie102.pdf",
+        "group": "Instalaciones eléctricas",
+        "sheet": "IE102",
+        "caption": "Isometría de alumbrado y tomacorrientes",
+        "alt": "IE102 · Isometría de alumbrado y tomacorrientes"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/ie103.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/ie103.pdf",
+        "group": "Instalaciones eléctricas",
+        "sheet": "IE103",
+        "caption": "Alumbrado del primer nivel en planta y 3D",
+        "alt": "IE103 · Alumbrado del primer nivel en planta y 3D"
+      },
+      {
+        "src": "/media/projects/anka-vivienda-unifamiliar/mep/ie104.webp",
+        "pdf": "/media/projects/anka-vivienda-unifamiliar/mep/ie104.pdf",
+        "group": "Instalaciones eléctricas",
+        "sheet": "IE104",
+        "caption": "Alumbrado y tomacorrientes de la sala en planta, isometría y corte",
+        "alt": "IE104 · Alumbrado y tomacorrientes de la sala en planta, isometría y corte"
       }
     ]
   },
