@@ -1,3 +1,4 @@
+import EditorialPresentation from './EditorialPresentation';
 import React, { useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { buildBook } from '../lib/book';
@@ -44,6 +45,7 @@ function Page({ entry, side, context }) {
 }
 
 export default function PortfolioBook({ projects, onOpen }) {
+  const [presentation, setPresentation] = useState(false);
   const reader = useRef(null);
   const trigger = useRef(null);
   const [number, setNumber] = useState(0);
@@ -61,6 +63,7 @@ export default function PortfolioBook({ projects, onOpen }) {
   const stacked = window.matchMedia('(max-width: 650px)').matches;
   const forward = target && turn > current;
   function enter() {
+    setPresentation(false);
     setNumber(0);
     setTurn(null);
     reader.current.showModal();
@@ -88,7 +91,7 @@ export default function PortfolioBook({ projects, onOpen }) {
     <dialog ref={reader} className="folio folio-reader" role="dialog" aria-label="Portafolio completo"
       onClose={() => { setOpened(false); setTurn(null); trigger.current?.focus({preventScroll:true}); }}
       onKeyDown={event => {
-        if (event.target.tagName === 'SELECT') return;
+        if (presentation || event.target.tagName === 'SELECT') return;
         const direction = {ArrowLeft: -1, ArrowRight: 1}[event.key];
         if (direction) { event.preventDefault(); move(direction); }
       }}>
@@ -97,6 +100,11 @@ export default function PortfolioBook({ projects, onOpen }) {
           <div>{CONFIG.name} {CONFIG.surname}<small>Arquitectura · BIM</small></div>
           <button onClick={leave}>Salir del libro ×</button>
         </header>
+        <nav className="folio-mode" aria-label="Modo de lectura">
+          <button aria-pressed={!presentation} onClick={() => setPresentation(false)}>Libro</button>
+          <button aria-pressed={presentation} disabled={turn !== null} onClick={() => setPresentation(true)}>Presentación</button>
+        </nav>
+        {presentation ? <EditorialPresentation projects={projects}/> : <>
         <div className="folio-stage"><div className="folio-spread">
           <div className="folio-half"><Page context={context} side="left" entry={target && !forward ? target : entry}/></div>
           <div className="folio-half"><Page context={context} side="right" entry={forward ? target : entry}/></div>
@@ -121,6 +129,7 @@ export default function PortfolioBook({ projects, onOpen }) {
           </a>)}
           {entry.project && <button onClick={() => { leave(); onOpen(entry.project); }}>Ficha completa ↗</button>}
         </div>
+        </>}
       </>}
     </dialog>
   </>;

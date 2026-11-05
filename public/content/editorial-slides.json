@@ -1,0 +1,25 @@
+[
+  {
+    "layout": "cover",
+    "title": ["ARQUITEC-", "TURA"],
+    "author": "Yhovel Alex Merma Ari",
+    "subtitle": "Arquitectura y modelado BIM",
+    "note": "Selección de proyectos y documentación técnica",
+    "projectId": "anka-vivienda-unifamiliar",
+    "media": "cover"
+  },
+  {
+    "layout": "index",
+    "title": "Index/Content",
+    "subtitle": "Contenido del portafolio",
+    "note": "Cuatro líneas de trabajo",
+    "projectId": "anka-vivienda-unifamiliar",
+    "media": "A-103",
+    "items": [
+      {"title": "Arquitectura", "description": "Plantas, cortes y vistas de la vivienda ANKA."},
+      {"title": "Estructuras", "description": "Detalle de zapatas, armado y metrados."},
+      {"title": "Instalaciones", "description": "Isometrías sanitarias y eléctricas del modelo BIM."},
+      {"title": "Herramientas digitales", "description": "Diseño generativo con MODUL-AI y programación arquitectónica con ARQUI-FÁCIL."}
+    ]
+  }
+]

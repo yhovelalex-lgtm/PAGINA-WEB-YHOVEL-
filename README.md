@@ -51,3 +51,9 @@ Este repositorio es público: no guardar secretos, datos privados, contratos ni 
 Añade una obra a `public/content/projects.json` con `status: "published"` y `demo: false`. Su ficha admite `cover`, `location` y una galería completa. Para dirigir la selección editorial indica, por ejemplo, `"bookSheets": ["A-101", "A-103", "E-103", "IS104", "IE102"]`. Los códigos deben coincidir con `gallery[].sheet`. El orden de la selección determina el recorrido por disciplina. Si omites la lista, el libro elige la primera vista de hasta cuatro disciplinas. Una lista vacía presenta únicamente la obra. La ficha conserva toda la galería y sus PDF.
 
 Portada, contenido, aperturas, láminas y cierre comparten la retícula de hojas blancas. Las obras sin portada dejan espacio en blanco hasta que añadas la imagen. El cuarto proyecto publicado ocupa la apertura de reserva. Ejecuta `npm run check` antes de subir los cambios.
+
+### Presentación editorial · primera entrega
+
+En Proyectos abre el libro y elige **Presentación**. Cambia textos en `public/content/editorial-slides.json`. Cada lámina usa un `projectId` del catálogo y una referencia de imagen: `cover` o un código de `gallery[].sheet`. Los colores y las fuentes están al inicio de `src/styles/editorial-presentation.css`. La portada y el índice están implementados en `src/components/EditorialPresentation.jsx`.
+
+Para probar: `npm ci`, `npm run dev` y abre la URL que muestre Vite. Antes de subir la rama ejecuta `npm run check`. Al subir commits a `feature/portafolio`, el proyecto conectado de Vercel genera la vista previa.
