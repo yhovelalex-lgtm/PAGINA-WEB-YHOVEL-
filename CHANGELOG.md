@@ -1,3 +1,10 @@
+## 1.5.1 — 2026-11-04
+
+- Contacto visible sin modal: Gmail, LinkedIn e Instagram con iconos, nombres y apertura directa en pestaña nueva.
+- Gmail abre la redacción web con destinatario preconfigurado; GitHub permanece como enlace técnico en el pie.
+- Componente aislado `DirectContact`, vínculos comprobables con tests; sin nuevas dependencias.
+- Se conservan la navegación, los proyectos, las láminas y los modales restantes.
+
 ## 1.5.0 — 2026-11-04
 
 **IA:** ChatGPT (OpenAI) · **Rama:** `feature/contacto-redes`

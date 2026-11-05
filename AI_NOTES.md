@@ -26,3 +26,9 @@ Léelo junto con `CHANGELOG.md` y `docs/DISENO.md` antes de cambiar nada. Actual
 - Falta imagen social para `og:image`; elegir una con autorización.
 - Integración futura de publicaciones sociales: preferir tarjetas manuales en `social.json` con enlaces seleccionados, sin suponer acceso a publicaciones privadas.
 - Verificar la vista previa de Vercel antes de solicitar merge; GitHub Actions debe confirmar `npm run check`.
+
+## Contacto directo 1.5.1
+- `src/components/DirectContact.jsx` sustituye únicamente el botón de modal «Hablemos» por tres enlaces externos visibles.
+- `src/lib/contact-links.js` genera las URLs externas; Gmail usa redacción web con destinatario y no registra ninguna credencial.
+- GitHub se mantiene como enlace de código del pie, no en las tarjetas principales.
+- No modificar ni eliminar modales de proyectos o del editor local.
