@@ -45,3 +45,9 @@ El editor “Preparar proyecto” guarda un borrador en el navegador y exporta J
 Los proyectos con `demo: true`, los niveles de habilidades y los reconocimientos demo son ejemplos, no acreditaciones verificadas. La imagen del autor es una silueta sustituible. El correo de contacto permanece vacío hasta que el autor elija su dirección pública.
 
 Este repositorio es público: no guardar secretos, datos privados, contratos ni documentos de terceros. `status: draft` oculta una ficha en la galería, pero no vuelve privado el archivo de GitHub.
+
+### Agregar una obra al libro interactivo
+
+Añade un registro en `public/content/projects.json` con un `id` único, `title`, `category`, `description`, `year`, `tools` y `status: "published"`. Puedes duplicar el registro de ANKA como plantilla. Para una portada propia, coloca un WebP en `public/media/projects/<id>/` e indica su ruta pública y texto alternativo en `cover.src` y `cover.alt`. La primera imagen de `gallery` ilustra la hoja izquierda. Con `status: "draft"` puedes preparar el contenido antes de mostrarlo.
+
+El orden del JSON determina el orden del libro. En Proyectos, pulsa la cubierta para abrirlo, la página derecha para avanzar y la izquierda para volver. En móvil, toca el lado correspondiente. «Ver ficha» abre el detalle con un enlace compartible `?proyecto=<id>`. Ejecuta `npm run check` antes de subir los cambios.
