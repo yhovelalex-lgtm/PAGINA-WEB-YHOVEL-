@@ -31,6 +31,10 @@ export default function useIdleTour({ enabled, swarm, reduced, chapters }) {
       if (document.hidden || document.querySelector('[role="dialog"]') || editing) {
         cancel(); lastInput = now; readSince = null; setStatus('PAUSA / EDICIÓN'); return;
       }
+      const book = document.querySelector('[data-book-open="true"]')?.getBoundingClientRect();
+      if (book && book.bottom > 100 && book.top < innerHeight * .9) {
+        cancel(); lastInput = now; readSince = null; setStatus('LECTURA DEL LIBRO'); return;
+      }
       if (moving) return;
       if (now - lastInput < TOUR_IDLE_MS) { setStatus('EN ESPERA'); return; }
       const building = document.querySelector('.builder-swarm')?.dataset.phase;

@@ -53,3 +53,11 @@
   .folio-hit:disabled::after { display: none; }
   .folio:not([data-book-open="true"]) .folio-hit.next { width: 100%; }
 }
+@media (min-width: 651px) {
+  .folio-hit:not(:disabled)::after {
+    position: absolute; bottom: 8px; padding: 4px 8px;
+    font: 500 .78rem 'IBM Plex Mono', monospace; background: #181818cc; color: white;
+  }
+  .folio-hit.prev::after { content: '←'; left: 8px; }
+  .folio-hit.next::after { content: '→'; right: 8px; }
+}

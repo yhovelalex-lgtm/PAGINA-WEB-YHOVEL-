@@ -34,7 +34,7 @@ export default function PortfolioBook({ projects, onOpen }) {
   function move(direction) {
     const next = current + direction;
     if (turn !== null || next < -1 || next >= projects.length) return;
-    if (reduced) setNumber(next);
+    if (reduced || window.matchMedia('(max-width: 650px)').matches) setNumber(next);
     else setTurn(next);
   }
   const left = turn !== null && !forward ? turn : current;
