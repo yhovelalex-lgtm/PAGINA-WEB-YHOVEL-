@@ -2,10 +2,37 @@
   "name": "Yhovel Alex",
   "surname": "Merma Ari",
   "role": "Arquitectura · BIM · Creative technology",
-  "email": "",
+  "email": "yhovelalex@gmail.com",
   "github": "https://github.com/yhovelalex-lgtm",
   "years": 0,
   "projectsUrl": "/content/projects.json",
   "repository": "https://github.com/yhovelalex-lgtm/PAGINA-WEB-YHOVEL-",
-  "tagline": "De una idea, a lo posible."
+  "tagline": "De una idea, a lo posible.",
+  "linkedin": "https://www.linkedin.com/in/yhovel-alex-merma-069a13222",
+  "instagram": "https://www.instagram.com/yhovelalex/",
+  "location": "Puno, Perú",
+  "url": "https://pagina-web-yhovel.vercel.app/",
+  "bio": "Arquitecto enfocado en automatización BIM y búsqueda de la mejora continua, diseño generativo e integración de agentes de IA (MCPs) en Revit y Dynamo para eliminar tareas repetitivas, acelerar la documentación ejecutiva y transformar datos en decisiones de diseño en el sector AEC.",
+  "trajectory": [
+    {
+      "period": "ACTUALIDAD",
+      "title": "Arquitectura + tecnología",
+      "description": "Exploración de herramientas digitales aplicadas al diseño arquitectónico."
+    },
+    {
+      "period": "EN DESARROLLO",
+      "title": "Modelado BIM y automatización",
+      "description": "Procesos paramétricos, documentación y herramientas para Revit."
+    },
+    {
+      "period": "PROGRAMA DE ENTRENAMIENTO",
+      "title": "IA y herramientas digitales para el sector AEC",
+      "description": "AECODE × PRO Innóvate (#BecaAITalent). Habilidades: IA en sector AEC; automatización BIM con IA y Dynamo (Revit API); diseño generativo e ingeniería de instalaciones (ACI); agentes de IA, conexiones MCP y flujos complejos."
+    },
+    {
+      "period": "FORMACIÓN",
+      "title": "Arquitectura y Urbanismo",
+      "description": "Universidad Nacional del Altiplano · Puno, Perú."
+    }
+  ]
 }
