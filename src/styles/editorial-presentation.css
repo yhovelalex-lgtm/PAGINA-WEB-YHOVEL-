@@ -35,10 +35,9 @@
 .ep-palette i { width:7px; height:7px; background:var(--negro); }
 .ep-palette i:nth-child(2) { background:#777; }
 .ep-palette i:nth-child(3) { background:#ccc; }
-.ep-controls,.folio-mode { display:flex; align-items:center; justify-content:center; gap:1rem; padding:.6rem; }
-.ep-controls button,.folio-mode button { padding:.45rem .7rem; color:white; border:1px solid #666; background:black; }
+.ep-controls { display:flex; align-items:center; justify-content:center; gap:1rem; padding:.6rem; }
+.ep-controls button { padding:.45rem .7rem; color:white; border:1px solid #666; background:black; }
 .ep-controls button:disabled { opacity:.45; }
-.folio-mode button[aria-pressed=true] { background:white; color:black; }
 .ep-controls span { font:500 .75rem var(--mono); }
 @keyframes ep-appear { from {opacity:0; transform:translateY(7px)} }
 @media(max-width:900px) { .ep-slide { aspect-ratio:auto; min-height:48vw; } .ep-photo { min-height:185px; } }
@@ -47,3 +46,69 @@
   .ep-running small { grid-column:1/-1; } .ep-index-copy ol { grid-template-columns:1fr; gap:.7rem; }
   .ep-cover::before { inset:55% 0 0; } }
 @media(prefers-reduced-motion:reduce) { .ep-slide { animation:none; } .ep-photo img { transition:none; } }
+
+.ep-launch { background:#050505; padding:clamp(24px,5vw,75px); display:grid; place-items:center; margin-bottom:2rem; }
+.ep-launch button { display:flex; flex-direction:column; justify-content:space-between; text-align:left; gap:1em; width:min(100%,700px); aspect-ratio:2; position:relative; overflow:hidden; background:white; color:#111; padding:4%; }
+.ep-launch strong { font:900 clamp(32px,5vw,82px)/1 Roboto,Arial,sans-serif; letter-spacing:-.06em; }
+.ep-launch img { position:absolute; height:100%; width:38%; top:0; right:0; object-fit:cover; filter:grayscale(1); transition:filter .4s; }
+.ep-launch button:hover img { filter:grayscale(0); }
+.ep-dialog { position:fixed; inset:0; margin:0; width:100%; height:100dvh; max-width:none; max-height:none; padding:0; border:0; overflow:auto; color:white; background:black; overscroll-behavior:contain; }
+.ep-dialog[open] { display:flex; flex-direction:column; }
+.ep-dialog::backdrop { background:black; }
+body:has(.ep-dialog[open]) { overflow:hidden; }
+.ep-top { display:flex; align-items:center; justify-content:space-between; padding:.7rem 4%; border-bottom:1px solid #333; }
+.ep-top button,.ep-controls select { padding:.4em; }
+.ep-controls { flex-wrap:wrap; color:white; }
+.ep-controls select { max-width:95%; color:white; background:#171717; border:1px solid #555; }
+.ep-dialog :focus-visible,.ep-launch :focus-visible { outline:2px solid #888; outline-offset:2px; }
+.ep-index-copy button { text-align:left; }
+.ep-composition { position:relative; flex:1; min-height:0; display:grid; margin:3% 0 1%; gap:1rem; grid-auto-rows:minmax(0,1fr); }
+.ep-name { grid-area:t; align-self:start; }
+.ep-text { grid-area:x; }
+.ep-text h3,.ep-column b { font:700 1rem/1.2 var(--titulo); margin:0 0 .5rem; }
+.ep-text ul { padding-left:1.1rem; list-style:square; margin-top:.6rem; font-size:.8rem; }
+.ep-slot { position:relative; min-width:0; min-height:0; }
+.ep-slot .ep-photo { height:100%; }
+.ep-slot-0 { grid-area:a; }
+.ep-slot-1 { grid-area:b; }
+.ep-slot-2 { grid-area:c; }
+.ep-slot .ep-photo img[src*="media/projects"]:not([src*="portada"]) { object-fit:contain; }
+.ep-caption { position:absolute; background:#fff; color:#131313; bottom:0; right:5%; max-width:80%; border:1px solid #ccc; padding:.6rem .9rem; font-size:.8rem; }
+.ep-column.col-0 { grid-area:d; } .ep-column.col-1 { grid-area:e; }
+.ep-table { grid-area:g; font-size:.7rem; align-self:center; border-collapse:collapse; width:100%; }
+.ep-table th,.ep-table td { padding:4px; text-align:left; border-bottom:1px solid #aaa; }
+.ep-vertical { position:absolute; right:-2.4%; bottom:5%; writing-mode:vertical-rl; font:300 .62rem var(--titulo); }
+.ep-a .ep-composition { grid-template-areas:"t t a a" "x x a a" "b c a a"; }
+.ep-b .ep-composition { grid-template-areas:"t a b" "x a c" "x a c"; grid-template-columns:1.1fr 1fr .75fr; }
+.ep-archi .ep-composition { grid-template-areas:"t d e" "x a a" "x a a"; }
+.ep-archi,.ep-portfolio { background:#1c1c1c; color:#fff; }
+.ep-archi .ep-running small,.ep-portfolio .ep-running small { color:#ddd; }
+.ep-c .ep-composition { grid-template-areas:"t t a a a" "x x a a a" "b c a a a"; }
+.ep-d .ep-composition { grid-template-areas:"t t b c" "a a x x" "a a x x"; }
+.ep-e .ep-composition { grid-template-areas:"t t b" "a a x" "a a x"; }
+.ep-e::before,.ep-h::before { content:''; position:absolute; z-index:-1; inset:0 0 0 56%; background:#ececec; }
+.ep-f .ep-composition { grid-template-areas:"t t d e" "a a a b" "a a a c"; }
+.ep-f .ep-text { display:none; }
+.ep-f .ep-vertical { right:auto; left:-2.4%; }
+.ep-g .ep-composition { grid-template-areas:"t t g g" "x x x x" "a a a a" "a a a a"; margin-bottom:-3%; }
+.ep-h .ep-composition { grid-template-areas:"t t a a" "x x a a" "b c a a"; border-right:1px solid #aaa; padding-right:1%; }
+.ep-h::before { inset:0 65% 0 0; }
+.ep-portfolio .ep-composition { grid-template-areas:"t a b" "x a c"; }
+.ep-i .ep-composition { grid-template-areas:"t a b" "x a b"; }
+.ep-j .ep-composition { grid-template-areas:"t a b c" "t a x x" "t a g g"; grid-template-columns:.15fr 1fr .6fr .6fr; }
+.ep-j .ep-name { writing-mode:vertical-rl; transform:rotate(180deg); }
+.ep-k .ep-composition { grid-template-areas:"t t a a" "x b a a" "x c a a"; }
+.ep-end .ep-composition { grid-template-areas:"t" "a" "a" "x"; text-align:center; }
+.ep-end .ep-name { max-width:13ch; justify-self:center; }
+.ep-end .ep-vertical { display:none; }
+@media(min-width:901px) { .ep-composition { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .ep-archi .ep-composition,.ep-portfolio .ep-composition,.ep-i .ep-composition,.ep-e .ep-composition { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .ep-c .ep-composition { grid-template-columns:repeat(5,minmax(0,1fr)); }
+  .ep-end .ep-composition { grid-template-columns:1fr; }
+}
+@media(max-width:900px) { .ep .ep-composition { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:none; grid-auto-rows:auto; }
+  .ep-composition > :not(.ep-vertical) { grid-area:auto; }
+  .ep-j .ep-name { writing-mode:horizontal-tb; transform:none; }
+  .ep-slot .ep-photo { min-height:155px; }
+}
+@media(max-width:600px) { .ep .ep-composition { grid-template-columns:minmax(0,1fr); } .ep-vertical { display:none; } }

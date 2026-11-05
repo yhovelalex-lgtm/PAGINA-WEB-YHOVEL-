@@ -46,14 +46,10 @@ Los proyectos con `demo: true`, los niveles de habilidades y los reconocimientos
 
 Este repositorio es público: no guardar secretos, datos privados, contratos ni documentos de terceros. `status: draft` oculta una ficha en la galería, pero no vuelve privado el archivo de GitHub.
 
-### Agregar una obra al libro interactivo
+### Portafolio editorial
 
-Añade una obra a `public/content/projects.json` con `status: "published"` y `demo: false`. Su ficha admite `cover`, `location` y una galería completa. Para dirigir la selección editorial indica, por ejemplo, `"bookSheets": ["A-101", "A-103", "E-103", "IS104", "IE102"]`. Los códigos deben coincidir con `gallery[].sheet`. El orden de la selección determina el recorrido por disciplina. Si omites la lista, el libro elige la primera vista de hasta cuatro disciplinas. Una lista vacía presenta únicamente la obra. La ficha conserva toda la galería y sus PDF.
+En **Proyectos → Entrar al portafolio**, la presentación abre sus 16 láminas. Usa las flechas, las teclas ← y →, el índice o «Ir a lámina». «Ficha completa» abre el catálogo técnico del proyecto con sus vistas y PDF.
 
-Portada, contenido, aperturas, láminas y cierre comparten la retícula de hojas blancas. Las obras sin portada dejan espacio en blanco hasta que añadas la imagen. El cuarto proyecto publicado ocupa la apertura de reserva. Ejecuta `npm run check` antes de subir los cambios.
+Edita títulos, listas, captions, tablas y composición en `public/content/editorial-slides.json`. Cada registro selecciona el `layout`, el `projectId` del catálogo y las referencias visuales: `cover` o códigos de `gallery[].sheet`. Un valor `null` conserva el espacio de una futura imagen. El contenido y archivos de cada obra se mantienen en `public/content/projects.json` y `public/media/projects/`. Los colores y fuentes de la presentación se ajustan en `src/styles/editorial-presentation.css`.
 
-### Presentación editorial · primera entrega
-
-En Proyectos abre el libro y elige **Presentación**. Cambia textos en `public/content/editorial-slides.json`. Cada lámina usa un `projectId` del catálogo y una referencia de imagen: `cover` o un código de `gallery[].sheet`. Los colores y las fuentes están al inicio de `src/styles/editorial-presentation.css`. La portada y el índice están implementados en `src/components/EditorialPresentation.jsx`.
-
-Para probar: `npm ci`, `npm run dev` y abre la URL que muestre Vite. Antes de subir la rama ejecuta `npm run check`. Al subir commits a `feature/portafolio`, el proyecto conectado de Vercel genera la vista previa.
+Ejecuta `npm ci` y `npm run dev` para probar localmente. Ejecuta `npm run check` antes de subir tu rama a GitHub. Vercel genera la vista previa de la rama y publica producción al integrar los cambios en main.

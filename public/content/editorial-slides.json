@@ -1,7 +1,10 @@
 [
   {
     "layout": "cover",
-    "title": ["ARQUITEC-", "TURA"],
+    "title": [
+      "ARQUITEC-",
+      "TURA"
+    ],
     "author": "Yhovel Alex Merma Ari",
     "subtitle": "Arquitectura y modelado BIM",
     "note": "Selección de proyectos y documentación técnica",
@@ -16,10 +19,291 @@
     "projectId": "anka-vivienda-unifamiliar",
     "media": "A-103",
     "items": [
-      {"title": "Arquitectura", "description": "Plantas, cortes y vistas de la vivienda ANKA."},
-      {"title": "Estructuras", "description": "Detalle de zapatas, armado y metrados."},
-      {"title": "Instalaciones", "description": "Isometrías sanitarias y eléctricas del modelo BIM."},
-      {"title": "Herramientas digitales", "description": "Diseño generativo con MODUL-AI y programación arquitectónica con ARQUI-FÁCIL."}
+      {
+        "title": "Arquitectura",
+        "description": "Plantas, cortes y vistas de la vivienda ANKA.",
+        "target": "a"
+      },
+      {
+        "title": "Estructuras",
+        "description": "Detalle de zapatas, armado y metrados.",
+        "target": "d"
+      },
+      {
+        "title": "Instalaciones",
+        "description": "Isometrías sanitarias y eléctricas del modelo BIM.",
+        "target": "e"
+      },
+      {
+        "title": "Herramientas digitales",
+        "description": "Diseño generativo con MODUL-AI y programación arquitectónica con ARQUI-FÁCIL.",
+        "target": "i"
+      }
     ]
+  },
+  {
+    "layout": "a",
+    "title": "Proyecto_01",
+    "subtitle": "Vivienda unifamiliar",
+    "description": "Modelé y documenté en BIM una vivienda del curso de ANKA Studio en Puno. La vista interior y los dibujos se leen como partes del mismo proyecto.",
+    "details": [],
+    "images": [
+      "cover",
+      "A-101",
+      "A-103"
+    ],
+    "note": "Vivienda unifamiliar · ANKA Studio",
+    "projectId": "anka-vivienda-unifamiliar"
+  },
+  {
+    "layout": "b",
+    "title": "Proyecto_02",
+    "subtitle": "Planta y sección",
+    "description": "El corte longitudinal permite seguir la escalera y los cambios de nivel.",
+    "details": [
+      "Distribución del primer nivel",
+      "Relación entre ambientes",
+      "Cotas y ejes"
+    ],
+    "images": [
+      "A-103",
+      "A-101",
+      "cover"
+    ],
+    "note": "Vivienda unifamiliar · ANKA Studio",
+    "projectId": "anka-vivienda-unifamiliar",
+    "caption": "Documentación de arquitectura"
+  },
+  {
+    "layout": "archi",
+    "title": "Archi.",
+    "subtitle": "Del modelo al plano",
+    "description": "Una misma vivienda se puede leer a tres escalas: el conjunto, el ambiente y su detalle constructivo.",
+    "details": [
+      "Puno, Perú",
+      "Revit · 2024–2025"
+    ],
+    "images": [
+      "cover"
+    ],
+    "note": "Vivienda unifamiliar · ANKA Studio",
+    "projectId": "anka-vivienda-unifamiliar",
+    "columns": [
+      [
+        "En planta",
+        "Los ejes sitúan los ambientes y la circulación."
+      ],
+      [
+        "En sección",
+        "El corte muestra la continuidad entre niveles."
+      ]
+    ]
+  },
+  {
+    "layout": "c",
+    "title": "Proyecto_03",
+    "subtitle": "El interior",
+    "description": "La cocina vincula la vista del modelo con la documentación del ambiente.",
+    "details": [
+      "Vista interior",
+      "Planta y corte"
+    ],
+    "images": [
+      "cover",
+      "A-101",
+      "A-103"
+    ],
+    "note": "Vivienda unifamiliar · ANKA Studio",
+    "projectId": "anka-vivienda-unifamiliar",
+    "caption": "Vivienda ANKA · Interior de cocina"
+  },
+  {
+    "layout": "d",
+    "title": "Proyecto_04",
+    "subtitle": "Cimentación y zapatas",
+    "description": "Las vistas de concreto, encofrado y acero acompañan los cuadros de metrados.",
+    "details": [
+      "Especialidad: estructuras",
+      "Lámina E-103"
+    ],
+    "images": [
+      "E-103",
+      "E-101",
+      "E-102"
+    ],
+    "note": "Vivienda unifamiliar · ANKA Studio",
+    "projectId": "anka-vivienda-unifamiliar"
+  },
+  {
+    "layout": "e",
+    "title": "Proyecto_05",
+    "subtitle": "Instalaciones sanitarias",
+    "description": "La isometría permite seguir las redes de abastecimiento y consultar los metrados de tuberías.",
+    "details": [
+      "Agua fría y caliente",
+      "Documentación MEP"
+    ],
+    "images": [
+      "IS104",
+      "IS101"
+    ],
+    "note": "Vivienda unifamiliar · ANKA Studio",
+    "projectId": "anka-vivienda-unifamiliar"
+  },
+  {
+    "layout": "f",
+    "title": "Proyecto_06",
+    "subtitle": "Instalaciones eléctricas",
+    "description": "El modelo relaciona alumbrado, tomacorrientes y tablero general.",
+    "details": [],
+    "images": [
+      "IE102",
+      "IE101",
+      "IE104"
+    ],
+    "note": "Vivienda unifamiliar · ANKA Studio",
+    "projectId": "anka-vivienda-unifamiliar",
+    "columns": [
+      [
+        "Planimetría",
+        "Ubicación de los puntos del primer nivel."
+      ],
+      [
+        "Isometría",
+        "Lectura espacial de las instalaciones."
+      ]
+    ]
+  },
+  {
+    "layout": "g",
+    "title": "Vivienda ANKA",
+    "subtitle": "Ficha técnica",
+    "description": "Ejercicio de modelado y documentación multidisciplinar.",
+    "details": [],
+    "images": [
+      "cover"
+    ],
+    "note": "Vivienda unifamiliar · ANKA Studio",
+    "projectId": "anka-vivienda-unifamiliar",
+    "table": [
+      [
+        "Lugar",
+        "Especialidad",
+        "Periodo"
+      ],
+      [
+        "Puno, Perú",
+        "BIM · Revit",
+        "2024–2025"
+      ]
+    ]
+  },
+  {
+    "layout": "h",
+    "title": "Proyecto_07",
+    "subtitle": "Coordinación visual",
+    "description": "La planta arquitectónica y las isometrías permiten comparar la distribución de ambientes con las redes.",
+    "details": [
+      "Arquitectura",
+      "Sanitarias",
+      "Eléctricas"
+    ],
+    "images": [
+      "A-101",
+      "IS104",
+      "IE102"
+    ],
+    "note": "Vivienda unifamiliar · ANKA Studio",
+    "projectId": "anka-vivienda-unifamiliar"
+  },
+  {
+    "layout": "portfolio",
+    "title": "Portfolio",
+    "subtitle": "Documentación BIM",
+    "description": "Selección de láminas de un mismo modelo.",
+    "details": [
+      "Planta",
+      "Corte",
+      "Isometría"
+    ],
+    "images": [
+      "A-103",
+      "IS104",
+      "IE102"
+    ],
+    "note": "Vivienda unifamiliar · ANKA Studio",
+    "projectId": "anka-vivienda-unifamiliar"
+  },
+  {
+    "layout": "i",
+    "title": "Proyecto_08",
+    "subtitle": "MODUL-AI",
+    "description": "Exploración de diseño generativo para vivienda modular y visualización de espacios.",
+    "details": [
+      "Diseño generativo",
+      "Visualización espacial"
+    ],
+    "images": [
+      null,
+      null
+    ],
+    "note": "Herramientas digitales",
+    "projectId": "modul-ai"
+  },
+  {
+    "layout": "j",
+    "title": "Proyecto_09",
+    "subtitle": "ARQUI-FÁCIL",
+    "description": "Aplicación para estudiar el programa arquitectónico, las relaciones funcionales y los diagramas de espacios.",
+    "details": [
+      "Programa arquitectónico",
+      "Relaciones funcionales"
+    ],
+    "images": [
+      null,
+      null,
+      null
+    ],
+    "note": "Herramientas digitales",
+    "projectId": "arqui-facil",
+    "table": [
+      [
+        "Programa",
+        "Relaciones",
+        "Diagrama"
+      ],
+      [
+        "Ambientes",
+        "Matriz",
+        "Espacios"
+      ]
+    ]
+  },
+  {
+    "layout": "k",
+    "title": "Proyecto_10",
+    "subtitle": "",
+    "description": "",
+    "details": [],
+    "images": [
+      null,
+      null,
+      null
+    ],
+    "note": "Próximo proyecto",
+    "projectId": null
+  },
+  {
+    "layout": "end",
+    "title": "THANK YOU FOR VIEWING",
+    "subtitle": "Yhovel Alex Merma Ari",
+    "description": "Arquitectura y documentación BIM · Puno, Perú",
+    "details": [],
+    "images": [
+      "cover"
+    ],
+    "note": "Vivienda unifamiliar · ANKA Studio",
+    "projectId": "anka-vivienda-unifamiliar",
+    "caption": "Yhovel Alex Merma Ari"
   }
 ]
