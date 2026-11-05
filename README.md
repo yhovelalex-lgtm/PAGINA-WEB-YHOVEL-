@@ -42,6 +42,6 @@ Antes de publicar: `npm run check`. Vercel utiliza `npm run build`, que valida l
 
 El editor “Preparar proyecto” guarda un borrador en el navegador y exporta JSON. **No publica en GitHub ni autentica al administrador.** Publicar requiere guardar el catálogo y las imágenes en este repositorio. El portafolio público nunca solicita tokens.
 
-Los proyectos con `demo: true`, los niveles de habilidades y los reconocimientos demo son ejemplos, no acreditaciones verificadas. La imagen del autor es una silueta sustituible. El correo de contacto permanece vacío hasta que el autor elija su dirección pública.
+Los proyectos con `demo: true`, los niveles de habilidades y los reconocimientos demo son ejemplos, no acreditaciones verificadas. La imagen del autor es una silueta sustituible. El correo público, LinkedIn e Instagram se configuran en `public/content/site.json`.
 
 Este repositorio es público: no guardar secretos, datos privados, contratos ni documentos de terceros. `status: draft` oculta una ficha en la galería, pero no vuelve privado el archivo de GitHub.
