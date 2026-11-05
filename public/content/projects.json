@@ -10,6 +10,8 @@
       "Modelado BIM",
       "Documentación técnica"
     ],
+    "location": "Puno, Perú",
+    "bookSheets": ["A-101", "A-103", "E-103", "IS104", "IE102"],
     "visual": 1,
     "demo": false,
     "status": "published",

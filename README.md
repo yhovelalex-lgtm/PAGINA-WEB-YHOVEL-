@@ -45,3 +45,11 @@ El editor “Preparar proyecto” guarda un borrador en el navegador y exporta J
 Los proyectos con `demo: true`, los niveles de habilidades y los reconocimientos demo son ejemplos, no acreditaciones verificadas. La imagen del autor es una silueta sustituible. El correo de contacto permanece vacío hasta que el autor elija su dirección pública.
 
 Este repositorio es público: no guardar secretos, datos privados, contratos ni documentos de terceros. `status: draft` oculta una ficha en la galería, pero no vuelve privado el archivo de GitHub.
+
+### Portafolio editorial
+
+En **Proyectos → Entrar al portafolio**, la presentación abre sus 16 láminas. Usa las flechas, las teclas ← y →, el índice o «Ir a lámina». «Ficha completa» abre el catálogo técnico del proyecto con sus vistas y PDF.
+
+Edita títulos, listas, captions, tablas y composición en `public/content/editorial-slides.json`. Cada registro selecciona el `layout`, el `projectId` del catálogo y las referencias visuales: `cover` o códigos de `gallery[].sheet`. Un valor `null` conserva el espacio de una futura imagen. El contenido y archivos de cada obra se mantienen en `public/content/projects.json` y `public/media/projects/`. Los colores y fuentes de la presentación se ajustan en `src/styles/editorial-presentation.css`.
+
+Ejecuta `npm ci` y `npm run dev` para probar localmente. Ejecuta `npm run check` antes de subir tu rama a GitHub. Vercel genera la vista previa de la rama y publica producción al integrar los cambios en main.

@@ -38,7 +38,7 @@ export default function Swarm() {
   const selector = 'h1,h2,h3,p,.eyebrow,.project-image,.portrait,.live-widget,.stats,.timeline,.award,.control,.bar,.philosophy,.contact-card,.portal-model,.app-art,.compare-view,.author';
   function register() {
    const elements = [...document.querySelectorAll('main > section, main > footer')].flatMap(area => [...area.querySelectorAll(selector)]);
-   const independent = elements.filter(el => !elements.some(other => other !== el && other.contains(el)));
+   const independent = elements.filter(el => !el.closest('dialog') && !elements.some(other => other !== el && other.contains(el)));
    independent.forEach(el => {
     if (jobs.has(el)) return;
     const job = { el, state: 'waiting', text: el.matches('h1,h2,h3,p,.eyebrow'), chars: [], start: 0 };
