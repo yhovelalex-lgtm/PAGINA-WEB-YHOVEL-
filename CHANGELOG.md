@@ -1,3 +1,14 @@
+## 1.5.0 — 2026-11-04
+
+**IA:** ChatGPT (OpenAI) · **Rama:** `feature/contacto-redes`
+
+- Contacto: correo público, LinkedIn e Instagram en `site.json`; modal «Hablemos» y pie de página con enlaces.
+- Trayectoria editable en `site.json` (`trajectory`) y programa «IA y herramientas digitales para el sector AEC» (AECODE × PRO Innóvate, #BecaAITalent), con información provisional no verificada como certificación.
+- Biografía provisional en `site.json`, aún sin mostrarse.
+- SEO: canonical, Open Graph, Twitter card y datos estructurados `Person`.
+- Validación de redes HTTPS, estructura de trayectoria y dos nuevas pruebas; revisar con `npm run check` y vista previa de Vercel.
+- Se conserva navegación, portada, robots, libro interactivo y los planos existentes; `main` no se modifica hasta completar revisión.
+
 ## 1.4.0 — 2026-11-03
 
 - Recorrido automático tras 12 segundos sin actividad, espera a los robots y deja 7 segundos de lectura.

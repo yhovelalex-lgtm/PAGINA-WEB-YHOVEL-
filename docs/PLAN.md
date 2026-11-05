@@ -13,7 +13,8 @@
 ## Fase 2 — Identidad y material real
 - [ ] Sustituir silueta por retrato recortado autorizado.
 - [ ] Incorporar renders propios y fichas completas de proyectos.
-- [ ] Elegir correo público y verificar trayectoria, habilidades y reconocimientos.
+- [x] Elegir correo público; LinkedIn e Instagram enlazados.
+- [ ] Verificar trayectoria, habilidades y reconocimientos (la trayectoria usa texto provisional del post de LinkedIn).
 - [ ] Mejorar narrativa con imágenes reales boceto/modelo/render.
 - [ ] Revisar métricas de carga con el material definitivo.
 
