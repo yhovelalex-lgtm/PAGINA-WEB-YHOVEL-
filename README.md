@@ -53,3 +53,9 @@ En **Proyectos → Entrar al portafolio**, la presentación abre sus 16 láminas
 Edita títulos, listas, captions, tablas y composición en `public/content/editorial-slides.json`. Cada registro selecciona el `layout`, el `projectId` del catálogo y las referencias visuales: `cover` o códigos de `gallery[].sheet`. Un valor `null` conserva el espacio de una futura imagen. El contenido y archivos de cada obra se mantienen en `public/content/projects.json` y `public/media/projects/`. Los colores y fuentes de la presentación se ajustan en `src/styles/editorial-presentation.css`.
 
 Ejecuta `npm ci` y `npm run dev` para probar localmente. Ejecuta `npm run check` antes de subir tu rama a GitHub. Vercel genera la vista previa de la rama y publica producción al integrar los cambios en main.
+
+### Proyecto provisional inmersivo
+
+La tarjeta **Proyecto en estudio** y la lámina **En estudio** abren su ficha. Desde «Abrir proyecto» se accede a `/proyectos/en-estudio/`. El HTML autocontenido está en `public/proyectos/en-estudio/index.html`. Emplea imágenes ya publicadas de ANKA y transiciones nativas ligadas al scroll. La secuencia de vídeo y los mapas de profundidad del prompt necesitan recursos propios del futuro proyecto.
+
+Sustituye las rutas de imagen en el HTML y en `ASSETS`, los textos y los datos del registro `proyecto-en-estudio` cuando se defina la obra. El formulario genera un resumen local para copiar. La información se envía únicamente cuando se conecta expresamente un servicio de contacto.
