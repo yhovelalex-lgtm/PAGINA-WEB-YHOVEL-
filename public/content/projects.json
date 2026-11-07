@@ -11,7 +11,13 @@
       "Documentación técnica"
     ],
     "location": "Puno, Perú",
-    "bookSheets": ["A-101", "A-103", "E-103", "IS104", "IE102"],
+    "bookSheets": [
+      "A-101",
+      "A-103",
+      "E-103",
+      "IS104",
+      "IE102"
+    ],
     "visual": 1,
     "demo": false,
     "status": "published",
@@ -248,6 +254,27 @@
     "demo": true,
     "status": "published",
     "cover": null,
+    "gallery": []
+  },
+  {
+    "id": "proyecto-en-estudio",
+    "title": "Proyecto en estudio · Experiencia inmersiva",
+    "category": "Exploración visual",
+    "year": "2026",
+    "description": "Prototipo de presentación cinematográfica para un proyecto aún por definir. Utiliza temporalmente la vista interior y planos del ejercicio ANKA Studio, con acercamientos al hacer scroll, luz ámbar y una galería interactiva. Las imágenes representan el ejercicio ANKA y sirven como referencia provisional.",
+    "tools": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "status": "published",
+    "demo": true,
+    "visual": 1,
+    "url": "https://pagina-web-yhovel.vercel.app/proyectos/en-estudio/",
+    "cover": {
+      "src": "/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp",
+      "alt": "A-108 · Vista interior de la cocina de la vivienda unifamiliar"
+    },
     "gallery": []
   }
 ]

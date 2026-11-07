@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07090B">
+<meta name="description" content="YHOVEL, estudio de arquitectura. Proyecto provisional · Imágenes de ANKA Studio.">
+<title>Proyecto provisional · Yhovel Alex</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2307090B'/%3E%3Crect x='6' y='13' width='20' height='7' fill='%23FF9A3C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{--ink:#07090B;--paper:#E8EAEC;--accent:#FF9A3C;--slate:#3A4148;--muted:#E8EAEC73;--line:#E8EAEC1F;--pad:clamp(20px,3.4vw,56px);--ease:cubic-bezier(.22,.8,.18,1)}
+*{box-sizing:border-box}
+html{background:var(--ink);scrollbar-width:thin;scrollbar-color:#3a4148 var(--ink)}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:'Inter Tight',system-ui,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;font-synthesis:none;overflow-x:hidden}
+h1,h2,p,figure,blockquote{margin:0}h1,h2{font-weight:400;letter-spacing:-.04em}
+a{color:inherit;text-decoration:none}button,input{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+::selection{background:var(--accent);color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.label{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+.dim{color:var(--muted)}.acc{color:var(--accent)}
+.skip{position:fixed;left:16px;top:-80px;z-index:40;padding:12px 16px;background:var(--paper);color:var(--ink)}.skip:focus{top:16px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+/* grano de película: una sola capa fija para toda la página */
+.grain{position:fixed;inset:-50%;z-index:30;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .6s steps(4) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}100%{transform:translate(0,0)}}
+/* barra flotante inferior */
+.dock{position:fixed;z-index:25;left:50%;bottom:24px;transform:translateX(-50%);display:flex;align-items:center;gap:2px;padding:6px;background:#07090Bf0;border:1px solid #ffffff14;border-radius:4px;box-shadow:0 18px 40px #0007;transition:opacity .4s,visibility .4s,transform .4s var(--ease)}
+.dock a{display:block;padding:12px 18px;font-size:12px;letter-spacing:.02em;border-radius:2px;transition:color .25s,background .25s}
+.dock a:hover{color:var(--accent)}
+.dock .mark{padding:9px 16px 9px 12px;margin-right:4px;border-right:1px solid #ffffff1a;border-radius:0}
+.dock .mark svg{display:block;width:22px;height:22px}
+.dock.away{opacity:0;visibility:hidden;transform:translate(-50%,16px)}
+
+/* 1-2 · toma única: travelling de vídeo → casa → interior */
+.story{position:relative;height:560svh}
+.st .story{height:auto}.st .stage{position:relative}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden;background:var(--ink)}
+.layer{position:absolute;inset:0}
+.scene-img{position:absolute;inset:0;will-change:transform,opacity}
+.scene-img[data-i="0"]{transform-origin:50.5% 40.5%;animation:dawn 1.1s var(--ease) both}
+.scene-img[data-i="1"]{transform-origin:38% 40%;opacity:0}
+.scene-img[data-i="2"]{transform-origin:40% 50%;opacity:0}
+@keyframes dawn{from{filter:brightness(.12) saturate(.6)}to{filter:none}}
+.scene-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .5s}
+.scene-canvas.ready{opacity:1}
+.shade{background:linear-gradient(180deg,#07090B66 0%,transparent 26%,transparent 70%,#07090B8c 100%);pointer-events:none}
+.grid{display:flex;justify-content:space-evenly;pointer-events:none}.grid span{width:1px;height:100%;background:#E8EAEC12}
+.hero{z-index:3;pointer-events:none}.hero a{pointer-events:auto}
+.mast{position:absolute;top:30px;left:var(--pad);right:var(--pad);display:flex;justify-content:space-between;align-items:center}
+.brand{font-size:15px;font-weight:500;letter-spacing:.22em}
+.request{display:flex;align-items:center;gap:22px;padding:9px 0;border-bottom:1px solid #E8EAEC66;font-size:13px;transition:border-color .3s,color .3s}
+.request:hover{color:var(--accent);border-color:var(--accent)}
+.headline{font-size:clamp(84px,12.5vw,200px);line-height:.86;letter-spacing:-.045em;font-weight:400}
+.headline .w{position:absolute;white-space:nowrap;display:block;will-change:transform}
+.headline .w1{top:clamp(92px,12vh,124px);left:calc(var(--pad) - .04em)}
+.headline .w2{right:var(--pad);bottom:clamp(104px,13vh,128px)}
+.headline .ch{display:inline-block}
+.hero-note{position:absolute;left:var(--pad);bottom:clamp(116px,14.5vh,140px);max-width:200px;font-size:14px;line-height:1.45;color:#E8EAECe6;text-shadow:0 0 14px #07090Bb3}
+.mid{z-index:3;pointer-events:none;opacity:0}
+.mid h2{position:absolute;left:var(--pad);bottom:clamp(110px,15vh,150px);font-size:clamp(52px,7.4vw,118px);line-height:.94}
+.stats{z-index:3;pointer-events:none;opacity:0}
+.stats .tag{position:absolute;top:34px;left:var(--pad)}
+.stat{position:absolute;display:flex;flex-direction:column;gap:8px}
+.stat b{font-weight:400;font-size:clamp(88px,12vw,190px);line-height:.82;letter-spacing:-.055em;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:#E8EAECb3}
+.stat.s1{top:84px;right:var(--pad);align-items:flex-end}
+.stat.s2{left:var(--pad);bottom:104px}
+.stat.s3{right:var(--pad);bottom:104px;align-items:flex-end}
+
+/* 3 · materia */
+.material{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:100svh;background:var(--ink)}
+.material-copy{display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:96px var(--pad) 120px;background:#FFFFFF;color:var(--ink)}
+.material-copy .dim{color:#07090B73}
+.material h2{font-size:clamp(56px,6.6vw,110px);line-height:.96}
+.material-copy p{max-width:290px;font-size:16px;line-height:1.55;color:#07090Bb3}
+.material-fig{position:relative;overflow:hidden;--mx:58%;--my:42%;cursor:crosshair}
+.material-fig img{position:absolute;inset:0}
+.material-fig .base{filter:brightness(.55) saturate(.8)}
+.material-fig .lit{filter:brightness(1.35) saturate(1.1);-webkit-mask-image:radial-gradient(circle min(30vw,300px) at var(--mx) var(--my),#000 0%,#0008 45%,transparent 75%);mask-image:radial-gradient(circle min(30vw,300px) at var(--mx) var(--my),#000 0%,#0008 45%,transparent 75%)}
+.material-fig .glow{position:absolute;inset:0;mix-blend-mode:soft-light;background:radial-gradient(circle min(24vw,240px) at var(--mx) var(--my),color-mix(in srgb,var(--accent) 80%,transparent),transparent 70%);pointer-events:none}
+.material-fig figcaption{position:absolute;left:28px;right:28px;bottom:28px;display:flex;justify-content:space-between}
+
+/* 4 · obras */
+.works{position:relative;isolation:isolate;min-height:110svh;padding:96px var(--pad) 128px;display:flex;flex-direction:column;justify-content:space-between;gap:80px;overflow:hidden}
+.work-bg{position:absolute;inset:0;z-index:-2}
+.work-bg img{position:absolute;inset:0;opacity:0;transform:scale(1.06);transition:opacity .7s var(--ease),transform 1.4s var(--ease)}
+.work-bg img.on{opacity:1;transform:scale(1)}
+.works::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#07090B99 0%,#07090B26 34%,#07090B59 52%,#07090Be6 100%)}
+.works-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.works-head h2{font-size:clamp(56px,7vw,112px);line-height:.96}
+.works-head .label{padding-top:14px}
+.list{display:flex;flex-direction:column}
+.item{display:grid;grid-template-columns:1.4fr 1fr 80px 24px;align-items:center;gap:20px;width:100%;padding:20px 0;border-top:1px solid #E8EAEC40;text-align:left;transition:color .3s,padding .4s var(--ease)}
+.item:last-child{border-bottom:1px solid #E8EAEC40}
+.item .n{font-size:clamp(34px,3.8vw,60px);letter-spacing:-.04em;line-height:1}
+.item .l,.item .y{font-size:13px;color:#E8EAECd9;text-shadow:0 0 14px #07090Bb3}.item .y{text-align:right}
+.item .ar{font-size:20px;text-align:right;opacity:.4;transition:opacity .3s,transform .4s var(--ease)}
+.item[aria-pressed="true"]{color:var(--accent);padding-left:14px}.item[aria-pressed="true"] .ar{opacity:1;transform:translate(3px,-3px)}
+
+/* 5 · vertical que se abre */
+.vertical{position:relative;height:240svh;background:var(--ink)}
+.v-stage{position:sticky;top:0;height:100svh;overflow:hidden}
+.v-fig{position:absolute;inset:0;clip-path:inset(12svh 33vw 12svh 33vw);will-change:clip-path}
+.v-fig img{object-position:50% 30%;transform:scale(1.12);will-change:transform}
+.v-fig::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,#07090Bb3 100%)}
+.v-stage .label{position:absolute;top:34px;left:var(--pad);z-index:2}
+.quote{position:absolute;z-index:2;left:var(--pad);right:var(--pad);bottom:clamp(110px,15vh,150px);max-width:11em;font-size:clamp(48px,7.4vw,124px);line-height:1;letter-spacing:-.045em;text-wrap:balance}
+.quote .wd{opacity:.16;transition:opacity .35s}.quote .wd.on{opacity:1}
+
+/* 6 · cierre-escaparate */
+.close{position:relative;isolation:isolate;min-height:100svh;padding:96px var(--pad) 0;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.close-bg{position:absolute;inset:0;z-index:-2}
+.close-bg img{object-position:52% 40%;transform:scale(1.04)}
+.close::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#07090Bcc 0%,#07090B59 38%,#07090B40 60%,#07090Bcc 100%)}
+.close-main{display:grid;grid-template-columns:1fr 1fr;gap:10%;align-items:start}
+.close h2{font-size:clamp(44px,4.8vw,78px);line-height:1}
+.close .label{display:block;margin-bottom:22px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:26px 22px;max-width:560px;justify-self:end;width:100%}
+.field{display:flex;flex-direction:column;gap:8px;font-size:12px;color:#E8EAECb3}
+.field input{min-height:44px;padding:8px 0 12px;border:0;border-bottom:1px solid #E8EAEC59;border-radius:0;background:transparent;color:var(--paper);font-size:16px;outline-offset:6px;transition:border-color .3s}
+.field input:focus{border-color:var(--accent)}
+.field input::placeholder{color:#E8EAEC59}
+.wide,.send,.done{grid-column:1/-1}
+.send{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;background:var(--accent);color:var(--ink);font-size:14px;font-weight:500;border-radius:2px;transition:background .3s}
+.send:hover{background:var(--paper)}
+.done{font-size:15px;line-height:1.5}
+.close-foot{display:flex;justify-content:space-between;gap:20px;padding:56px 0 14px;font-size:12px;color:#E8EAECb3}
+.close-foot a:hover{color:var(--accent)}
+.wordmark{width:max-content;font-size:25vw;line-height:.74;letter-spacing:-.06em;white-space:nowrap;margin:0 0 0 -.03em;transform:translateY(.02em);pointer-events:none;user-select:none}
+
+/* sin animación (movimiento reducido) */
+.still .story{height:auto}.still .stage{position:relative;height:auto;overflow:visible}
+.still .stage>.layer.media{position:relative;height:100svh}
+.still .scene-img[data-i="0"]{animation:none}
+.still .scene-canvas,.still .mid{display:none}
+.still .hero{position:absolute;top:0;height:100svh}
+.still .stats{position:relative;height:100svh;opacity:1;background:linear-gradient(#07090B4d,#07090B80),var(--interior) center/cover}
+.still .vertical{height:auto}.still .v-stage{position:relative}.still .v-fig{clip-path:none}.still .v-fig img{transform:none}.still .quote .wd{opacity:1}
+.still .grain{animation:none}
+
+@media (max-width:760px){
+ .dock{bottom:16px}.dock a{padding:12px 11px;font-size:12px}.dock .mark{padding:8px 10px}
+ .mast{top:22px}.request{gap:14px;font-size:12px}
+ .headline{font-size:clamp(64px,21vw,120px)}
+ .headline .w1{top:96px}.headline .w2{bottom:150px}
+ .hero-note{bottom:250px;font-size:13px;max-width:170px}
+ .mid h2{bottom:120px}
+ .stat b{font-size:clamp(76px,24vw,120px)}.stat.s1{top:80px}.stat.s2,.stat.s3{bottom:100px}
+ .material{grid-template-columns:1fr}.material-copy{padding:80px var(--pad) 56px;gap:32px}.material-fig{height:88svh}
+ .material-fig figcaption{left:20px;right:20px;bottom:22px}
+ .works{padding:80px var(--pad) 110px;gap:64px}.works-head{flex-direction:column;gap:14px}.works-head .label{padding:0}
+ .item{grid-template-columns:1fr auto 18px;gap:4px 12px;padding:16px 0}
+ .item .n{grid-column:1;font-size:38px}.item .l{grid-column:1;grid-row:2;font-size:12px}.item .y{grid-column:2;grid-row:1}.item .ar{grid-column:3;grid-row:1}
+ .v-fig{clip-path:inset(14svh 14vw 14svh 14vw)}
+ .close{padding-top:80px}.close-main{grid-template-columns:1fr;gap:40px}.form{grid-template-columns:1fr;justify-self:stretch}
+ .close-foot{flex-wrap:wrap;padding-top:48px;font-size:11px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
+
+/* Provisional assets from ANKA; replace their paths and crops when the project is defined. */
+.brief{width:100%;min-height:120px;padding:12px;color:var(--paper);background:#141719;border:1px solid var(--slate);font:inherit}
+.copy{padding:12px;border:1px solid var(--accent)}
+.fog{pointer-events:none;opacity:.5;background:radial-gradient(ellipse at 30% 100%,#aab1b66b,transparent 65%);mask-image:radial-gradient(circle at var(--fog-x,50%) var(--fog-y,50%),transparent 6%,black 36%)}
+.scene-img[data-i="1"]{object-fit:contain;background:#eee}
+.work-bg img:not(:first-child){object-fit:contain;background:#343a40}
+.wordmark{width:100%;font-size:clamp(60px,21vw,400px);line-height:.9;text-align:center}
+.headline .w{animation:sharp 1.05s both}
+@keyframes sharp{from{filter:blur(16px);opacity:0}to{filter:blur(0);opacity:1}}
+@media(max-width:760px){.hero-note{bottom:290px}.stat span{font-size:14px}.close-foot{padding-bottom:24px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#materia">Saltar al contenido</a>
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="dock" aria-label="Navegación principal">
+ <a class="mark" href="#inicio" aria-label="YHOVEL, inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="6" y="10" width="9" height="4" style="fill:var(--accent)"/></svg></a>
+ <a href="#materia">Estudio</a><a href="#obras">Obras</a><a href="#contacto">Contacto</a>
+</nav>
+
+<main>
+<section class="story" id="inicio" aria-label="Recorrido provisional entre vistas del modelo">
+ <div class="stage">
+  <div class="layer media" aria-hidden="true">
+   <img class="scene-img" data-i="0" data-image="basalt-lejos" src="/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp" alt="" fetchpriority="high">
+   <img class="scene-img" data-i="1" data-image="basalt-cerca" src="/media/projects/anka-vivienda-unifamiliar/detalle-cocina.webp" alt="" loading="lazy">
+   <img class="scene-img" data-i="2" data-image="basalt-interior" src="/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp" alt="" loading="lazy">
+  </div>
+  <div class="layer fog" aria-hidden="true"></div><div class="layer shade" aria-hidden="true"></div>
+  <div class="layer grid" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+  <div class="layer hero">
+   <header class="mast">
+    <a class="brand" href="/#work" aria-label="Volver al portafolio">← YHOVEL</a>
+    <a class="request" href="#contacto">Preparar idea <span class="acc" aria-hidden="true">↗</span></a>
+   </header>
+   <h1 class="headline" aria-label="Proyecto en exploración"><span class="w w1" aria-hidden="true">Proyecto</span><span class="w w2" aria-hidden="true">en estudio</span></h1>
+   <p class="hero-note">Proyecto provisional · Imágenes de ANKA Studio.</p>
+  </div>
+
+  <div class="layer mid" aria-hidden="true"><h2>Del modelo<br><span class="dim">al espacio.</span></h2></div>
+
+  <div class="layer stats" role="group" aria-label="Un ejercicio BIM, cuatro disciplinas y 21 láminas de ANKA Studio">
+   <span class="tag label" aria-hidden="true">Documentación del ejercicio ANKA</span>
+   <div class="stat s1" aria-hidden="true"><b data-to="1">1</b><span>ejercicio BIM</span></div>
+   <div class="stat s2" aria-hidden="true"><b data-to="4">4</b><span>disciplinas</span></div>
+   <div class="stat s3" aria-hidden="true"><b data-to="21">21</b><span>láminas</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="material" id="materia" aria-labelledby="materia-t">
+ <div class="material-copy">
+  <span class="label dim">Materia</span>
+  <h2 id="materia-t">Del modelo.<br><span class="dim">Al detalle.</span></h2>
+  <p>Esta experiencia ensaya la presentación de un proyecto aún por definir. Por ahora utiliza la vista interior y la documentación del ejercicio de vivienda unifamiliar de ANKA Studio en Puno.</p>
+ </div>
+ <figure class="material-fig">
+  <img class="base" data-image="basalt-detalle" src="/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp" data-sizes="(max-width:760px) 100vw, 50vw" alt="Vista interior de cocina del ejercicio BIM de ANKA Studio" loading="lazy">
+  <img class="lit" data-image="basalt-detalle" src="/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp" data-sizes="(max-width:760px) 100vw, 50vw" alt="" aria-hidden="true" loading="lazy">
+  <div class="glow" aria-hidden="true"></div>
+  <figcaption class="label"><span>Vista interior</span><span>ANKA Studio</span></figcaption>
+ </figure>
+</section>
+
+<section class="works" id="obras" aria-labelledby="obras-t">
+ <div class="work-bg" aria-hidden="true">
+  <img class="on" data-image="basalt-obra-sal" src="/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp" alt="" loading="lazy">
+  <img data-image="basalt-obra-fiordo" src="/media/projects/anka-vivienda-unifamiliar/corte-longitudinal.webp" alt="" loading="lazy">
+  <img data-image="basalt-obra-bosque" src="/media/projects/anka-vivienda-unifamiliar/zapatas.webp" alt="" loading="lazy">
+  <img data-image="basalt-obra-lava" src="/media/projects/anka-vivienda-unifamiliar/mep/is104.webp" alt="" loading="lazy">
+ </div>
+ <div class="works-head"><h2 id="obras-t">Otras lecturas.</h2><span class="label">Vistas (04)</span></div>
+ <div class="list" role="group" aria-label="Vistas del ejercicio ANKA: elige una para verla">
+  <button class="item" type="button" aria-pressed="true"><span class="n">Interior</span><span class="l">Cocina · Vista del modelo</span><span class="y">2025</span><span class="ar" aria-hidden="true">↗</span></button>
+  <button class="item" type="button" aria-pressed="false"><span class="n">Sección</span><span class="l">Corte longitudinal A–A</span><span class="y">2025</span><span class="ar" aria-hidden="true">↗</span></button>
+  <button class="item" type="button" aria-pressed="false"><span class="n">Estructura</span><span class="l">Zapatas y metrados</span><span class="y">2024</span><span class="ar" aria-hidden="true">↗</span></button>
+  <button class="item" type="button" aria-pressed="false"><span class="n">Redes</span><span class="l">Isometría de abastecimiento</span><span class="y">2026</span><span class="ar" aria-hidden="true">↗</span></button>
+ </div>
+</section>
+
+<section class="vertical" id="manifiesto" aria-labelledby="manifiesto-t">
+ <div class="v-stage">
+  <figure class="v-fig"><img data-image="basalt-cenital" src="/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp" alt="Vista interior utilizada como referencia provisional" loading="lazy"></figure>
+  <span class="label">Manifiesto</span>
+  <blockquote class="quote" id="manifiesto-t">Del dibujo al espacio. De la idea al detalle.</blockquote>
+ </div>
+</section>
+
+<section class="close" id="contacto" aria-labelledby="contacto-t">
+ <div class="close-bg" aria-hidden="true"><img data-image="basalt-lejos" src="/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp" alt="" loading="lazy"></div>
+ <div class="close-main">
+  <div><span class="label dim">El próximo proyecto</span><h2 id="contacto-t">Todo empieza<br><span class="dim">con una idea.</span></h2></div>
+  <form class="form" novalidate><p class="wide">Prepara un resumen para copiar. Estos datos permanecen en tu navegador.</p>
+   <label class="field">Nombre<input name="nombre" autocomplete="name" required maxlength="80" placeholder="Tu nombre"></label>
+   <label class="field">Email<input name="email" type="email" autocomplete="email" required maxlength="120" placeholder="tu@correo.com"></label>
+   <label class="field wide">Proyecto<input name="proyecto" required maxlength="120" placeholder="Vivienda, espacio público, equipamiento…"></label>
+   <button class="send" type="submit">Preparar idea <span aria-hidden="true">↗</span></button>
+   <p class="done" role="status" hidden></p><textarea class="brief wide" aria-label="Resumen preparado" hidden readonly></textarea><button class="copy wide" type="button" hidden>Copiar resumen</button>
+  </form>
+ </div>
+ <div>
+  <div class="close-foot"><span>© 2026 YHOVEL · Proyecto provisional · Visuales de ANKA Studio</span><a href="/#contact">Contacto de Yhovel ↗</a><a href="#inicio">Volver arriba ↑</a></div>
+  <div class="wordmark" aria-hidden="true">YHOVEL</div>
+ </div>
+</section>
+</main>
+
+<script>
+// Replace these references when the definitive project and its renders are ready.
+const ASSETS = {
+  'basalt-lejos': '/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp',
+  'basalt-cerca': '/media/projects/anka-vivienda-unifamiliar/detalle-cocina.webp',
+  'basalt-interior': '/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp',
+  'basalt-detalle': '/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp',
+  'basalt-cenital': '/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp',
+  'basalt-obra-sal': '/media/projects/anka-vivienda-unifamiliar/portada-cocina.webp',
+  'basalt-obra-fiordo': '/media/projects/anka-vivienda-unifamiliar/corte-longitudinal.webp',
+  'basalt-obra-bosque': '/media/projects/anka-vivienda-unifamiliar/zapatas.webp',
+  'basalt-obra-lava': '/media/projects/anka-vivienda-unifamiliar/mep/is104.webp'
+};
+const $ = selector => document.querySelector(selector);
+const all = selector => [...document.querySelectorAll(selector)];
+const motion = matchMedia('(prefers-reduced-motion: reduce)');
+const fine = matchMedia('(pointer:fine)').matches;
+const clamp = value => Math.max(0, Math.min(1, value));
+const smooth = (start, end, value) => {
+  const t = clamp((value - start) / (end - start));
+  return t * t * (3 - 2 * t);
+};
+document.documentElement.style.setProperty('--interior', 'url("' + ASSETS['basalt-interior'] + '")');
+const images = all('.scene-img');
+const story = $('.story');
+const stage = $('.stage');
+const vertical = $('.vertical');
+const words = $('.quote').textContent.split(/\s+/);
+$('.quote').setAttribute('aria-label', $('.quote').textContent);
+$('.quote').replaceChildren(...words.map(word => {
+  const span = document.createElement('span');
+  span.className = 'wd'; span.textContent = word + ' '; span.setAttribute('aria-hidden','true');
+  return span;
+}));
+const quoteWords = all('.quote .wd');
+const items = all('.item');
+function pick(index) {
+  items.forEach((item,i) => item.setAttribute('aria-pressed', String(i === index)));
+  all('.work-bg img').forEach((image,i) => image.classList.toggle('on', i === index));
+}
+items.forEach((item,i) => ['pointerenter','focus','click'].forEach(event => item.addEventListener(event, () => pick(i))));
+
+const form = $('.form');
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+  const values = new FormData(form);
+  $('.brief').value = 'Nombre: ' + values.get('nombre').trim() + '\nEmail: ' + values.get('email').trim() + '\nProyecto: ' + values.get('proyecto').trim();
+  $('.brief').hidden = false;
+  $('.copy').hidden = false;
+  $('.done').hidden = false;
+  $('.done').textContent = 'Resumen preparado. Puedes copiarlo y usar el enlace de contacto.';
+});
+$('.copy').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText($('.brief').value); $('.done').textContent = 'Resumen copiado.'; }
+  catch { $('.brief').focus(); $('.brief').select(); $('.done').textContent = 'Selecciona y copia el resumen.'; }
+});
+
+let frame = 0;
+let pointer = {x: .5, y: .5};
+let current = {x: .5, y: .5};
+function schedule() {
+  if (!frame && !document.hidden) frame = requestAnimationFrame(render);
+}
+function reveal(image, amount) {
+  image.style.opacity = amount > 0 ? 1 : 0;
+  // A soft portal expands from the centre of the reference image.
+  const radius = amount * 155;
+  image.style.maskImage = amount >= 1 ? 'none' : 'radial-gradient(ellipse ' + radius + 'vmax ' + radius * .7 + 'vmax at 50% 50%, black 83%, transparent 100%)';
+  image.style.webkitMaskImage = image.style.maskImage;
+}
+function render() {
+  frame = 0;
+  const reduced = motion.matches;
+  document.documentElement.classList.toggle('still', reduced);
+  const height = stage.clientHeight || innerHeight;
+  const p = clamp(-story.getBoundingClientRect().top / Math.max(1, story.offsetHeight - height));
+  const q = clamp((p - .26) / .74);
+  const first = smooth(.04,.34,q), second = smooth(.44,.72,q);
+  current.x += (pointer.x - current.x) * .14;
+  current.y += (pointer.y - current.y) * .14;
+  if (!reduced) {
+    const x = (current.x - .5) * 1.7, y = (current.y - .5) * 1.7;
+    images[0].style.transform = 'translate(' + x + '%, ' + y + '%) scale(' + (1.06 + .25 * clamp(p / .26) + .6 * first) + ')';
+    images[1].style.transform = 'scale(' + (1.5 - .5 * first + .6 * second) + ')';
+    images[2].style.transform = 'scale(' + (1.5 - .5 * second) + ')';
+    reveal(images[1],first); reveal(images[2],second);
+    $('.hero').style.opacity = 1 - smooth(.15,.26,p);
+    $('.w1').style.transform = 'translate(-' + p * 8 + 'vw,-' + p * 20 + 'vh)';
+    $('.w2').style.transform = 'translate(' + p * 8 + 'vw,' + p * 20 + 'vh)';
+    $('.mid').style.opacity = smooth(.28,.35,q) * (1 - smooth(.42,.47,q));
+    const count = smooth(.64,.78,q);
+    $('.stats').style.opacity = count;
+    all('[data-to]').forEach(counter => counter.textContent = Math.round(Number(counter.dataset.to) * count));
+    stage.style.setProperty('--fog-x', current.x * 100 + '%');
+    stage.style.setProperty('--fog-y', current.y * 100 + '%');
+    $('.fog').style.opacity = String(.5 * (1 - second));
+    const r = vertical.getBoundingClientRect();
+    const progress = clamp(-r.top / Math.max(1, vertical.offsetHeight - innerHeight));
+    const open = smooth(0,.6,progress);
+    const insetX = (innerWidth <= 760 ? 14 : 33) * (1-open);
+    $('.v-fig').style.clipPath = 'inset(' + 12*(1-open) + 'svh ' + insetX + 'vw)';
+    quoteWords.forEach((word,i) => word.classList.toggle('on', progress > .3 + i / quoteWords.length * .5));
+  } else {
+    $('.hero').style.opacity = 1;
+    $('.stats').style.opacity = 1;
+    images.forEach(image => { image.style.transform = 'none'; image.style.maskImage = 'none'; image.style.webkitMaskImage = 'none'; });
+    images[0].style.opacity = 1; images[1].style.opacity = 0; images[2].style.opacity = 0;
+    $('.w1').style.transform = $('.w2').style.transform = 'none';
+    all('[data-to]').forEach(counter => counter.textContent = counter.dataset.to);
+    $('.v-fig').style.clipPath = 'none';
+    quoteWords.forEach(word => word.classList.add('on'));
+    $('.fog').style.opacity = 0;
+  }
+  const visible = story.getBoundingClientRect().bottom > 0 && story.getBoundingClientRect().top < innerHeight;
+  if (!reduced && visible && Math.abs(pointer.x-current.x)+Math.abs(pointer.y-current.y)>.002) schedule();
+}
+$('.material-fig').addEventListener('pointermove', event => {
+  if (motion.matches) return;
+  const rect = event.currentTarget.getBoundingClientRect();
+  event.currentTarget.style.setProperty('--mx',(event.clientX-rect.left)/rect.width*100+'%');
+  event.currentTarget.style.setProperty('--my',(event.clientY-rect.top)/rect.height*100+'%');
+});
+addEventListener('pointermove', event => {
+  if (fine && !motion.matches) { pointer = {x:event.clientX/innerWidth,y:event.clientY/innerHeight}; schedule(); }
+}, {passive:true});
+addEventListener('scroll',schedule,{passive:true});
+addEventListener('resize',schedule);
+motion.addEventListener('change',schedule);
+document.addEventListener('visibilitychange',() => {
+  if (document.hidden) { cancelAnimationFrame(frame); frame=0; } else schedule();
+});
+new IntersectionObserver(([entry]) => $('.dock').classList.toggle('away',entry.isIntersecting), {threshold:.15}).observe($('.close'));
+schedule();
+</script>
+
+</body></html>

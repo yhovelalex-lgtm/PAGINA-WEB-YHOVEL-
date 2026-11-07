@@ -281,17 +281,20 @@
   },
   {
     "layout": "k",
-    "title": "Proyecto_10",
-    "subtitle": "",
-    "description": "",
-    "details": [],
+    "title": "En estudio",
+    "subtitle": "Experiencia inmersiva",
+    "description": "Proyecto provisional. Recorrido cinematográfico con vistas del ejercicio BIM de ANKA Studio. Abre la ficha para explorar la experiencia.",
+    "details": [
+      "Scroll y transiciones",
+      "Imágenes provisionales"
+    ],
     "images": [
-      null,
+      "cover",
       null,
       null
     ],
-    "note": "Próximo proyecto",
-    "projectId": null
+    "note": "Exploración visual · ANKA como referencia",
+    "projectId": "proyecto-en-estudio"
   },
   {
     "layout": "end",
