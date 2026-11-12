@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B0C0E">
+  <meta name="description" content="Prototipo editorial interactivo del portafolio de arquitectura de Yhovel Alex.">
+  <title>Folio · Portafolio de Yhovel Alex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./folio.css">
+  <script defer src="./proyectos.js"></script>
+  <script defer src="./folio.js"></script>
+</head>
+<body>
+  <main class="folio" id="portafolio">
+    <div class="folio-mesa" aria-hidden="true"></div>
+    <header class="folio-topbar">
+      <p>Portafolio · 2026</p>
+      <a class="folio-contact-link" href="mailto:" aria-label="Escríbeme: correo pendiente">Escríbeme ↗</a>
+    </header>
+    <a class="folio-back" href="/">← Volver al sitio</a>
+
+    <section class="folio-stage" aria-label="Libro de portafolio">
+      <div class="folio-contact-shadow" aria-hidden="true"></div>
+      <div class="folio-book" id="folio-book">
+        <div class="folio-spread" id="folio-spread" aria-live="off"></div>
+        <div class="folio-turn" id="folio-turn" aria-hidden="true"></div>
+        <button class="folio-cover" id="folio-cover" type="button" aria-label="Abrir libro de portafolio">
+          <span class="folio-cover-top">YHOVEL ALEX MERMA ARI</span>
+          <span class="folio-cover-title">PORTA<br>FOLIO</span>
+          <span class="folio-cover-author">YHOVEL ALEX MERMA ARI</span>
+          <span class="folio-cover-year">2026</span>
+          <span class="folio-cover-hint">Haz clic para abrir ↗</span>
+        </button>
+      </div>
+    </section>
+
+    <nav class="folio-controls" aria-label="Controles del libro">
+      <button type="button" id="folio-prev" aria-label="Pliego anterior" disabled>← Anterior</button>
+      <div class="folio-progress">
+        <span id="folio-count">00 / 08</span>
+        <span class="folio-progress-track"><i id="folio-progress-bar"></i></span>
+        <span id="folio-current-name">Sobre mí</span>
+      </div>
+      <button type="button" id="folio-next" aria-label="Pliego siguiente" disabled>Siguiente →</button>
+    </nav>
+    <p class="folio-key-hint">Usa ← →, arrastra las páginas o selecciona los bordes del libro</p>
+
+    <div class="folio-announcer" id="folio-announcer" aria-live="polite" aria-atomic="true"></div>
+    <section class="folio-mobile" id="folio-mobile" aria-label="Portafolio en formato vertical"></section>
+    <footer class="folio-footer"><span>PROTOTIPO INDEPENDIENTE · FOLIO</span><span>ARQUITECTURA / BIM / TECNOLOGÍA</span></footer>
+  </main>
+</body>
+</html>
